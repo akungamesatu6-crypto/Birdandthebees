@@ -159,6 +159,11 @@
   .card p{color:var(--muted);font-size:14px;margin:6px 0 0;font-weight:500}
   .stage-no{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--muted)}
   .card .rarity-pill{margin:0}
+  .vrange{font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--pink-deep);margin-top:4px}
+  .vthumbs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:16px 0 0}
+  .vthumb{appearance:none;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-family:inherit;font-weight:700;font-size:12.5px;padding:7px 12px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:7px}
+  .vthumb img{width:26px;height:26px;border-radius:8px;object-fit:cover;background:#fff;border:1px solid var(--line)}
+  .vthumb[aria-pressed="true"]{border-color:var(--pink);background:var(--blush);color:var(--pink-deep)}
 
   /* ladder */
   .ladder{background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden}
@@ -608,6 +613,7 @@
         </div>
       </div>
       <div class="steps" id="steps" role="group" aria-label="ティア"></div>
+      <div class="vthumbs" id="vthumbs"></div>
       <div class="progress" aria-hidden="true"><i id="prog" style="width:16.6%"></i></div>
     </div>
   </section>
@@ -649,7 +655,7 @@
           <p data-lkey="limP">青い鳥とミツバチが寄り添う、コレクションで最も希少な姿 — ピンクのハートと金色のきらめきに包まれた、世界にひとつだけのペア。</p>
           <ul>
             <li data-lkey="limLi1">6ティアの中で最も希少</li>
-            <li data-lkey="limLi2">ユーザーの原画そのままの、たった1点</li>
+            <li data-lkey="limLi2">虹の翼と巨大なハート、たった1点</li>
             <li data-lkey="limLi3">すべてのペアが夢見る最終形態</li>
           </ul>
         </div>
@@ -992,15 +998,15 @@ var I18N = {
     xFollow:'Xでシェアする',
     heroCap:'Lovebirds — <b>青い鳥とミツバチ</b>、コレクションの心臓部',
     growTitle:'ふたりに出会おう<span class="en-sub">Meet the Duo</span>',
-    growDesc:'青い鳥とミツバチ、6つの姿。ティアを選ぶと、レアリティが上がるにつれてふたりがどう変わるかが見られます。',
+    growDesc:'青い鳥とミツバチ、6つのティア・14の姿。ティアを選ぶと、レアリティが上がるにつれてふたりがどう変わるかが見られます。',
     colTitle:'コレクション<span class="en-sub">The Collection</span>',
-    colDesc:'6つのアートワーク、ひとつの恋の物語 — 横にスワイプして、カードをタップすると大きく表示されます。',
+    colDesc:'14のアートワーク、ひとつの恋の物語 — 横にスワイプして、カードをタップすると大きく表示されます。',
     rarTitle:'レアリティ一覧<span class="en-sub">Rarity Ladder</span>',
-    rarDesc:'レアになるほど、ふたりは輝く — 全4,444点をティアごとに紹介します。',
+    rarDesc:'レアになるほど、ふたりは輝く — 全4,444点をティアごとに紹介します。各ティアには複数のデザインがあります。',
     limTitle:'たったひとつの真実の愛<span class="en-sub">True Love</span>', limDesc:'頂点に立つのは、世界にひとつだけのふたり。',
     limPill:'リミテッド', limH3:'True Love',
     limP:'青い鳥とミツバチが寄り添う、コレクションで最も希少な姿 — ピンクのハートと金色のきらめきに包まれた、世界にひとつだけのペア。',
-    limLi1:'6ティアの中で最も希少', limLi2:'ユーザーの原画そのままの、たった1点', limLi3:'すべてのペアが夢見る最終形態',
+    limLi1:'6ティアの中で最も希少', limLi2:'虹の翼と巨大なハート、たった1点', limLi3:'すべてのペアが夢見る最終形態',
     mintTitle:'ミント<span class="en-sub">Mint</span>',
     mintDesc:'BNBチェーン上の4,444羽の鳥とミツバチ。最初のミントは Agent ID で無料 — 有料ミントは単品でも頂点に届くチャンスがあります。',
     pc1Tag:'ミント #1 · Agent ID 限定', pc1Price:'無料',
@@ -1088,15 +1094,15 @@ var I18N = {
     xFollow:'Share on X',
     heroCap:'Lovebirds — <b>the blue bird &amp; the bee</b>, the heart of the collection',
     growTitle:'Meet the Duo<span class="en-sub">ふたりに出会おう</span>',
-    growDesc:'One bird, one bee, six looks. Pick a tier to see how the pair changes as rarity climbs.',
+    growDesc:'One bird, one bee — 6 tiers, 14 looks. Pick a tier to see how the pair changes as rarity climbs.',
     colTitle:'The Collection<span class="en-sub">コレクション</span>',
-    colDesc:'Six artworks, one love story — swipe sideways, tap a card to view it larger.',
+    colDesc:'Fourteen artworks, one love story — swipe sideways, tap a card to view it larger.',
     rarTitle:'Rarity Ladder<span class="en-sub">レアリティ一覧</span>',
-    rarDesc:'The rarer the pair, the brighter they shine — all 4,444 pieces, tier by tier.',
+    rarDesc:'The rarer the pair, the brighter they shine — all 4,444 pieces, tier by tier. Each tier has several designs.',
     limTitle:'One True Love<span class="en-sub">たったひとつの真実の愛</span>', limDesc:'At the very top stands the one pair that exists only once.',
     limPill:'Limited', limH3:'True Love',
     limP:'The blue bird and the bee, cheek to cheek — the rarest pair in the collection, wrapped in a pink heart and golden sparkles. One of one.',
-    limLi1:'The rarest of all 6 tiers', limLi2:'The original artwork itself — a single piece', limLi3:'The final form every pair dreams of',
+    limLi1:'The rarest of all 6 tiers', limLi2:'Rainbow wings and a giant glowing heart — a single piece', limLi3:'The final form every pair dreams of',
     mintTitle:'Mint<span class="en-sub">ミント</span>',
     mintDesc:'4,444 birds and bees on BNB Chain. The first mint is free with an Agent ID — and even a single paid mint can reach the very top.',
     pc1Tag:'Mint #1 · Agent ID only', pc1Price:'FREE',
@@ -1156,51 +1162,146 @@ var I18N = {
 var STAGES = [
   { count:3000, cls:"r-common", img:"assets/1-common-bluebird.png",
     ja:{ name:"Bluebird", rarity:"コモン", short:"青い鳥ひとり、空を見上げる小さな旅の始まり。", alt:"オレンジ色のくちばしを持つ丸い青い鳥", desc:"ちいさな青い鳥が、空を見上げて羽ばたきの練習をしています。丸い身体、オレンジ色のくちばし、幸せそうに閉じた目 — すべてのペアはここから始まります。" },
-    en:{ name:"Bluebird", rarity:"Common", short:"One little blue bird, looking up at the sky.", alt:"A round chubby blue bird with an orange beak", desc:"A tiny blue bird practices its first flutter, looking up at the sky. Round body, orange beak, happily closed eyes — every pair starts here." } },
+    en:{ name:"Bluebird", rarity:"Common", short:"One little blue bird, looking up at the sky.", alt:"A round chubby blue bird with an orange beak", desc:"A tiny blue bird practices its first flutter, looking up at the sky. Round body, orange beak, happily closed eyes — every pair starts here." },
+    variants:[
+      { img:"assets/1-common-bluebird.png", range:"1–1000",
+        ja:{ name:"Bluebird", alt:"オレンジ色のくちばしを持つ丸い青い鳥", short:"青い鳥ひとり、空を見上げる小さな旅の始まり。" },
+        en:{ name:"Bluebird", alt:"A round chubby blue bird with an orange beak", short:"One little blue bird, looking up at the sky." } },
+      { img:"assets/1b-common-bluebird-daisy.png", range:"1001–2000",
+        ja:{ name:"Bluebird Daisy", alt:"ヒナギクをくわえた丸い青い鳥", short:"ヒナギクをくわえた青い鳥、春の陽だまりでひと休み。" },
+        en:{ name:"Bluebird Daisy", alt:"A round chubby blue bird holding a daisy", short:"A blue bird with a daisy, resting in the spring sun." } },
+      { img:"assets/1c-common-bluebird-sky.png", range:"2001–3000",
+        ja:{ name:"Bluebird Sky", alt:"青空を飛ぶ丸い青い鳥", short:"青空を羽ばたく青い鳥、雲の上でひと休み。" },
+        en:{ name:"Bluebird Sky", alt:"A round chubby blue bird flying in the blue sky", short:"A blue bird soaring through the blue sky." } }
+    ] },
   { count:700, cls:"r-uncommon", img:"assets/2-uncommon-honeybee.png",
     ja:{ name:"Honeybee", rarity:"アンコモン", short:"黄色いミツバチひとり、花畑をひとりで飛び回る。", alt:"青い羽と黒い縞を持つ丸い黄色いミツバチ", desc:"花畑をひとりで飛び回る、丸い黄色いミツバチ。透き通る青い羽、黒い縞、幸せそうに閉じた目 — ハチミツの香りがします。" },
-    en:{ name:"Honeybee", rarity:"Uncommon", short:"One little yellow bee, buzzing alone through the flowers.", alt:"A round chubby yellow bee with black stripes and light-blue wings", desc:"A round yellow bee buzzes alone through the flower field. Translucent blue wings, black stripes, happily closed eyes — it smells of honey." } },
+    en:{ name:"Honeybee", rarity:"Uncommon", short:"One little yellow bee, buzzing alone through the flowers.", alt:"A round chubby yellow bee with black stripes and light-blue wings", desc:"A round yellow bee buzzes alone through the flower field. Translucent blue wings, black stripes, happily closed eyes — it smells of honey." },
+    variants:[
+      { img:"assets/2-uncommon-honeybee.png", range:"3001–3233",
+        ja:{ name:"Honeybee", alt:"青い羽と黒い縞を持つ丸い黄色いミツバチ", short:"黄色いミツバチひとり、花畑をひとりで飛び回る。" },
+        en:{ name:"Honeybee", alt:"A round chubby yellow bee with black stripes and light-blue wings", short:"One little yellow bee, buzzing alone through the flowers." } },
+      { img:"assets/2b-uncommon-honeybee-sunflower.png", range:"3234–3466",
+        ja:{ name:"Honeybee Sunflower", alt:"ヒマワリの上で蜜を集める黄色いミツバチ", short:"ヒマワリ畑で蜜を集める黄色いミツバチ、黄金の花粉まみれ。" },
+        en:{ name:"Honeybee Sunflower", alt:"A yellow bee gathering honey on a sunflower", short:"A yellow bee gathering honey on a sunflower, dusted in gold." } },
+      { img:"assets/2c-uncommon-honeybee-clover.png", range:"3467–3700",
+        ja:{ name:"Honeybee Clover", alt:"四つ葉のクローバーの上で休む黄色いミツバチ", short:"四つ葉のクローバーの上で休むミツバチ、幸運の羽音。" },
+        en:{ name:"Honeybee Clover", alt:"A yellow bee resting on a four-leaf clover", short:"A bee resting on a lucky four-leaf clover." } }
+    ] },
   { count:500, cls:"r-rare", img:"assets/3-rare-lovebirds.png",
     ja:{ name:"Lovebirds", rarity:"レア", short:"青い鳥とミツバチ、頬を寄せ合うふたり。", alt:"頬を寄せ合う青い鳥と黄色いミツバチ、ピンクのハート付き", desc:"青い鳥とミツバチが頬を寄せ合い、頭の上にピンクのハートが浮かびます。コレクションの心臓部 — ふたりの恋の物語の始まりです。" },
-    en:{ name:"Lovebirds", rarity:"Rare", short:"The blue bird and the bee, cheek to cheek.", alt:"A blue bird and a yellow bee nuzzling cheek to cheek with a pink heart above", desc:"The blue bird and the bee press their cheeks together as a pink heart floats above them. The heart of the collection — where the love story begins." } },
+    en:{ name:"Lovebirds", rarity:"Rare", short:"The blue bird and the bee, cheek to cheek.", alt:"A blue bird and a yellow bee nuzzling cheek to cheek with a pink heart above", desc:"The blue bird and the bee press their cheeks together as a pink heart floats above them. The heart of the collection — where the love story begins." },
+    variants:[
+      { img:"assets/3-rare-lovebirds.png", range:"3701–3866",
+        ja:{ name:"Lovebirds", alt:"頬を寄せ合う青い鳥と黄色いミツバチ、ピンクのハート付き", short:"青い鳥とミツバチ、頬を寄せ合うふたり。" },
+        en:{ name:"Lovebirds", alt:"A blue bird and a yellow bee nuzzling cheek to cheek with a pink heart above", short:"The blue bird and the bee, cheek to cheek." } },
+      { img:"assets/3b-rare-lovebirds-picnic.png", range:"3867–4033",
+        ja:{ name:"Lovebirds Picnic", alt:"花畑でピクニックをする青い鳥と黄色いミツバチ", short:"花畑でピクニックをするふたり、イチゴとお茶の香り。" },
+        en:{ name:"Lovebirds Picnic", alt:"A blue bird and a yellow bee having a picnic in a flower field", short:"The pair on a flower-field picnic, strawberries and tea." } },
+      { img:"assets/3c-rare-lovebirds-sunset.png", range:"4034–4200",
+        ja:{ name:"Lovebirds Sunset", alt:"夕日の花畑で寄り添う青い鳥と黄色いミツバチ", short:"夕日の花畑で寄り添うふたり、空はオレンジ色。" },
+        en:{ name:"Lovebirds Sunset", alt:"A blue bird and a yellow bee nuzzling at sunset in a flower field", short:"The pair at sunset, the sky glowing orange." } }
+    ] },
   { count:180, cls:"r-epic", img:"assets/4-epic-golden.png",
     ja:{ name:"Golden Duo", rarity:"エピック", short:"金色に輝くふたり、きらめきに包まれて。", alt:"金色の鳥と金色のミツバチ、きらめきとピンクのハート付き", desc:"金色に輝く鳥とミツバチ。金色のきらめきが舞い、ピンクのハートが光ります — 花畑の夕日に照らされた、まばゆいペアです。" },
-    en:{ name:"Golden Duo", rarity:"Epic", short:"The pair in gold, wrapped in sparkles.", alt:"A golden bird and a golden bee with sparkles and a pink heart", desc:"The bird and the bee, both glowing gold. Golden sparkles drift around them and a pink heart shines above — a dazzling pair lit by the evening sun." } },
+    en:{ name:"Golden Duo", rarity:"Epic", short:"The pair in gold, wrapped in sparkles.", alt:"A golden bird and a golden bee with sparkles and a pink heart", desc:"The bird and the bee, both glowing gold. Golden sparkles drift around them and a pink heart shines above — a dazzling pair lit by the evening sun." },
+    variants:[
+      { img:"assets/4-epic-golden.png", range:"4201–4290",
+        ja:{ name:"Golden Duo", alt:"金色の鳥と金色のミツバチ、きらめきとピンクのハート付き", short:"金色に輝くふたり、きらめきに包まれて。" },
+        en:{ name:"Golden Duo", alt:"A golden bird and a golden bee with sparkles and a pink heart", short:"The pair in gold, wrapped in sparkles." } },
+      { img:"assets/4b-epic-golden-crown.png", range:"4291–4380",
+        ja:{ name:"Golden Duo Crown", alt:"金色の王冠をかぶった金色の鳥と金色のミツバチ", short:"金色の王冠をかぶった黄金のふたり、きらめきの王と女王。" },
+        en:{ name:"Golden Duo Crown", alt:"A golden bird and a golden bee wearing golden crowns", short:"The golden pair, crowned in gold." } }
+    ] },
   { count:63, cls:"r-legendary", img:"assets/5-legendary-royal.png",
     ja:{ name:"Royal Duo", rarity:"レジェンダリー", short:"王冠をかぶったふたり、花畑の王と女王。", alt:"金色の王冠をかぶった青い鳥と黄色いミツバチ", desc:"青い鳥とミツバチが金色の王冠をかぶり、花畑の王と女王になりました。金色のきらめきとピンクのハートに包まれた、伝説のペアです。" },
-    en:{ name:"Royal Duo", rarity:"Legendary", short:"The crowned pair — king and queen of the garden.", alt:"A blue bird and a yellow bee wearing golden crowns", desc:"The blue bird and the bee wear golden crowns — king and queen of the flower garden. Wrapped in golden sparkles and a pink heart, a legendary pair." } },
+    en:{ name:"Royal Duo", rarity:"Legendary", short:"The crowned pair — king and queen of the garden.", alt:"A blue bird and a yellow bee wearing golden crowns", desc:"The blue bird and the bee wear golden crowns — king and queen of the flower garden. Wrapped in golden sparkles and a pink heart, a legendary pair." },
+    variants:[
+      { img:"assets/5-legendary-royal.png", range:"4381–4411",
+        ja:{ name:"Royal Duo", alt:"金色の王冠をかぶった青い鳥と黄色いミツバチ", short:"王冠をかぶったふたり、花畑の王と女王。" },
+        en:{ name:"Royal Duo", alt:"A blue bird and a yellow bee wearing golden crowns", short:"The crowned pair — king and queen of the garden." } },
+      { img:"assets/5b-legendary-royal-throne.png", range:"4412–4443",
+        ja:{ name:"Royal Duo Throne", alt:"花畑の玉座に座る王冠の青い鳥と黄色いミツバチ", short:"花畑の玉座に座る王と女王、伝説のふたり。" },
+        en:{ name:"Royal Duo Throne", alt:"A crowned blue bird and a yellow bee seated on a flower throne", short:"King and queen upon the garden throne." } }
+    ] },
   { count:1, cls:"r-limited", img:"assets/6-limited-truelove.png",
-    ja:{ name:"True Love", rarity:"リミテッド", short:"世界にひとつだけの、真実の愛のペア。", alt:"ピンクのハートとともに寄り添う青い鳥と黄色いミツバチの原画", desc:"青い鳥とミツバチ、ピンクのハートとともに寄り添う — ユーザーの原画そのままの姿。世界にひとつだけ、コレクションの頂点です。" },
-    en:{ name:"True Love", rarity:"Limited", short:"One pair, one true love — the only one in the world.", alt:"The original artwork of the blue bird and yellow bee nuzzling under a pink heart", desc:"The blue bird and the bee, cheek to cheek under a pink heart — the original artwork itself. One of one — the crown of the collection." } }
+    ja:{ name:"True Love", rarity:"リミテッド", short:"虹の羽で寄り添う、世界にひとつだけの真実の愛。", alt:"虹色の羽、虹のアーチ、三日月、光る大きなハートとともに寄り添う青い鳥と黄色いミツバチ", desc:"虹色の羽を広げた青い鳥とミツバチが、虹のアーチと三日月の下で大きな光るハートを分かち合います。世界にひとつだけ、コレクションの頂点です。" },
+    en:{ name:"True Love", rarity:"Limited", short:"Rainbow wings, one glowing heart — the only one in the world.", alt:"A blue bird and a yellow bee with rainbow wings under a rainbow arc and crescent moon, sharing a giant glowing heart", desc:"The blue bird and the bee spread rainbow wings beneath a rainbow arc and crescent moon, sharing one giant glowing heart. One of one — the crown of the collection." },
+    variants:[
+      { img:"assets/6-limited-truelove.png", range:"4444",
+        ja:{ name:"True Love", alt:"虹色の羽、虹のアーチ、三日月、光る大きなハートとともに寄り添う青い鳥と黄色いミツバチ", short:"虹の羽で寄り添う、世界にひとつだけの真実の愛。" },
+        en:{ name:"True Love", alt:"A blue bird and a yellow bee with rainbow wings under a rainbow arc and crescent moon, sharing a giant glowing heart", short:"Rainbow wings, one glowing heart — the only one in the world." } }
+    ] }
 ];
+/* Flat list of all 14 variants, each linked to its tier. */
+var VARIANTS = [];
+STAGES.forEach(function(s, si){
+  s.variants.forEach(function(v, vi){
+    VARIANTS.push({ stage: si, variant: vi, img: v.img, range: v.range, ja: v.ja, en: v.en, cls: s.cls, count: s.count });
+  });
+});
+function rangeText(r){
+  if (LANG==='ja') return 'ID ' + r;
+  return r.indexOf('–') >= 0 ? 'ids ' + r : 'id ' + r;
+}
+function designsText(n){
+  return LANG==='ja' ? (n + 'デザイン') : (n + (n === 1 ? ' design' : ' designs'));
+}
 function stageName(s){ return s[LANG].name; }
 function stageOther(s){ return LANG==='ja' ? s.en.name : s.ja.name; }
-var current = 0, lbIndex = 0;
+var current = 0, curVariant = 0, lbIndex = 0;
 var vImg = document.getElementById('vImg'), vStage = document.getElementById('vStage'),
     vName = document.getElementById('vName'), vRarity = document.getElementById('vRarity'),
     vDesc = document.getElementById('vDesc'), prog = document.getElementById('prog'),
     vEn = document.getElementById('vEn'), vCount = document.getElementById('vCount'),
-    stepsEl = document.getElementById('steps');
+    stepsEl = document.getElementById('steps'),
+    vthumbs = document.getElementById('vthumbs');
 function countText(s){
   return LANG==='ja' ? ('全4,444点中 ' + s.count.toLocaleString('ja-JP') + '本') : (s.count.toLocaleString('en-US') + ' of 4,444 pieces');
 }
 function stageLabel(i){ return LANG==='ja' ? ('ティア ' + (i+1) + ' / 6') : ('Tier ' + (i+1) + ' / 6'); }
 function stageShort(i){ return LANG==='ja' ? ('ティア ' + (i+1)) : ('Tier ' + (i+1)); }
 function setStage(i, instant){
-  current = i;
-  var s = STAGES[i], d = s[LANG];
-  if (instant) { vImg.src = s.img; vImg.alt = d.alt; vImg.style.opacity = 1; }
-  else { vImg.style.opacity = 0; setTimeout(function(){ vImg.src = s.img; vImg.alt = d.alt; vImg.style.opacity = 1; }, 160); }
+  current = i; curVariant = 0;
+  var s = STAGES[i], d = s[LANG], v = s.variants[0], vd = v[LANG];
+  if (instant) { vImg.src = v.img; vImg.alt = vd.alt; vImg.style.opacity = 1; }
+  else { vImg.style.opacity = 0; setTimeout(function(){ vImg.src = v.img; vImg.alt = vd.alt; vImg.style.opacity = 1; }, 160); }
   vStage.textContent = stageLabel(i);
-  vName.textContent = d.name;
-  vEn.textContent = stageOther(s);
+  vName.textContent = vd.name;
+  vEn.textContent = LANG==='ja' ? v.en.name : v.ja.name;
   vRarity.textContent = d.rarity;
   vRarity.className = 'rarity-pill ' + s.cls;
   vDesc.textContent = d.desc;
-  vCount.textContent = countText(s);
+  vCount.textContent = countText(s) + ' · ' + rangeText(v.range);
   prog.style.width = ((i+1)/6*100) + '%';
   var btns = stepsEl.querySelectorAll('.step-btn');
   for (var b = 0; b < btns.length; b++) btns[b].setAttribute('aria-pressed', b === i ? 'true' : 'false');
+  buildVthumbs();
+}
+function setVariant(j){
+  curVariant = j;
+  var s = STAGES[current], v = s.variants[j], vd = v[LANG];
+  vImg.style.opacity = 0;
+  setTimeout(function(){ vImg.src = v.img; vImg.alt = vd.alt; vImg.style.opacity = 1; }, 160);
+  vName.textContent = vd.name;
+  vEn.textContent = LANG==='ja' ? v.en.name : v.ja.name;
+  vCount.textContent = countText(s) + ' · ' + rangeText(v.range);
+  var btns = vthumbs.querySelectorAll('.vthumb');
+  for (var b = 0; b < btns.length; b++) btns[b].setAttribute('aria-pressed', b === j ? 'true' : 'false');
+}
+function buildVthumbs(){
+  vthumbs.innerHTML = '';
+  var s = STAGES[current];
+  if (s.variants.length < 2) return;
+  s.variants.forEach(function(v, j){
+    var vd = v[LANG];
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'vthumb';
+    btn.setAttribute('aria-pressed', j === curVariant ? 'true' : 'false');
+    btn.innerHTML = '<img src="' + v.img + '" alt="">' + vd.name + ' · ' + rangeText(v.range);
+    btn.addEventListener('click', function(){ setVariant(j); });
+    vthumbs.appendChild(btn);
+  });
 }
 function buildSteps(){
   stepsEl.innerHTML = '';
@@ -1217,35 +1318,43 @@ function buildSteps(){
 var grid = document.getElementById('grid'), ladder = document.getElementById('ladder');
 function buildGallery(){
   grid.innerHTML = ''; ladder.innerHTML = '';
+  var flat = 0;
   STAGES.forEach(function(s, i){
     var d = s[LANG];
-    var card = document.createElement('button');
-    card.type = 'button'; card.className = 'card';
-    card.innerHTML =
-      '<span class="art" style="display:block"><img src="' + s.img + '" alt="' + d.alt + '" loading="lazy"></span>' +
-      '<span class="body" style="display:block">' +
-        '<span class="row" style="display:flex"><span class="stage-no">' + stageShort(i) + '</span><span class="rarity-pill ' + s.cls + '">' + d.rarity + '</span></span>' +
-        '<h3 style="margin-top:8px">' + d.name + '</h3><div class="stage-en">' + stageOther(s) + '</div>' +
-        '<p>' + d.short + '</p>' +
-      '</span>';
-    card.addEventListener('click', function(){ openLb(i); });
-    grid.appendChild(card);
+    /* one card per variant — 14 in total, grouped by tier */
+    s.variants.forEach(function(v, j){
+      var vd = v[LANG], myFlat = flat++;
+      var card = document.createElement('button');
+      card.type = 'button'; card.className = 'card';
+      card.innerHTML =
+        '<span class="art" style="display:block"><img src="' + v.img + '" alt="' + vd.alt + '" loading="lazy"></span>' +
+        '<span class="body" style="display:block">' +
+          '<span class="row" style="display:flex"><span class="stage-no">' + stageShort(i) + '</span><span class="rarity-pill ' + s.cls + '">' + d.rarity + '</span></span>' +
+          '<h3 style="margin-top:8px">' + vd.name + '</h3><div class="stage-en">' + (LANG==='ja' ? v.en.name : v.ja.name) + '</div>' +
+          '<div class="vrange">' + rangeText(v.range) + '</div>' +
+          '<p>' + vd.short + '</p>' +
+        '</span>';
+      card.addEventListener('click', function(){ openLb(myFlat); });
+      grid.appendChild(card);
+    });
+    /* one ladder row per tier, listing its designs */
+    var names = s.variants.map(function(v){ return v[LANG].name; }).join(LANG==='ja' ? ' / ' : ', ');
     var row = document.createElement('div');
     row.className = 'lrow';
     row.innerHTML = '<img class="thumb" src="' + s.img + '" alt="" loading="lazy">' +
-      '<div><div class="nm">' + d.name + '</div><div class="ds">' + stageShort(i) + ' · ' + countText(s) + '</div></div>' +
+      '<div><div class="nm">' + d.name + '</div><div class="ds">' + stageShort(i) + ' · ' + countText(s) + ' · ' + designsText(s.variants.length) + ' — ' + names + '</div></div>' +
       '<span class="rarity-pill ' + s.cls + '">' + d.rarity + '</span>';
     ladder.appendChild(row);
   });
 }
 var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'),
     lbName = document.getElementById('lbName'), lbMeta = document.getElementById('lbMeta');
-function openLb(i){
-  lbIndex = i;
-  var s = STAGES[i], d = s[LANG];
-  lbImg.src = s.img; lbImg.alt = d.alt;
+function openLb(vi){
+  lbIndex = vi;
+  var x = VARIANTS[vi], d = x[LANG];
+  lbImg.src = x.img; lbImg.alt = d.alt;
   lbName.textContent = d.name;
-  lbMeta.textContent = stageShort(i) + ' · ' + d.rarity + ' · ' + (LANG==='ja' ? (s.count.toLocaleString('ja-JP') + '点') : (s.count.toLocaleString('en-US') + ' pieces'));
+  lbMeta.textContent = stageShort(x.stage) + ' · ' + STAGES[x.stage][LANG].rarity + ' · ' + rangeText(x.range);
   lb.classList.add('open');
   document.getElementById('lbClose').focus();
 }
