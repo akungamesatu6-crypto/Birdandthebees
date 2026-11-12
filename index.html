@@ -1,0 +1,2142 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Bird and The Bees — プレビュー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light dark;
+    --bg:#f2f9ff; --bg2:#fff8e6; --surface:#ffffff; --surface2:#f0f8ff;
+    --ink:#22303c; --muted:#64788a; --line:#d5e5f2;
+    --pink:#2f9be8; --pink-deep:#1c6fb8; --pink-soft:#dcefff; --blush:#eaf5ff;
+    --gold:#d99a00; --gold-bg:#fff3d0; --violet:#7a5af5; --violet-bg:#eee9fe;
+    --green:#5d8a4a; --green-bg:#eaf3e2;
+    --header:rgba(242,249,255,.88);
+    --shadow:0 10px 30px rgba(28,111,184,.10);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#101c26; --bg2:#152430; --surface:#182832; --surface2:#1e3242;
+      --ink:#e8f3fb; --muted:#a8bfd0; --line:#2c4256;
+      --pink:#5cb3f0; --pink-deep:#8ec9f7; --pink-soft:#1d3a52; --blush:#1a2c3c;
+      --gold:#f0b93c; --gold-bg:#3d3115; --violet:#b7a3ff; --violet-bg:#322a52;
+      --green:#a5cf8e; --green-bg:#2a3a20;
+      --header:rgba(16,28,38,.88);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Quicksand","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  h1,h2,h3{font-family:"Noto Serif JP","Marcellus",serif;font-weight:400;line-height:1.15;margin:0}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:var(--header);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;gap:16px;height:60px}
+  .brand{font-family:"Marcellus",serif;font-size:22px;letter-spacing:.22em;text-decoration:none}
+  .brand span{color:var(--pink)}
+  .badge{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-deep);background:var(--blush);border:1px solid var(--line);padding:4px 10px;border-radius:999px;white-space:nowrap}
+  .header-mint-btn{display:inline-flex;align-items:center;background:var(--pink);color:#fff;font-weight:800;font-size:14px;text-decoration:none;padding:8px 18px;border-radius:999px;box-shadow:0 6px 16px rgba(28,111,184,.25);white-space:nowrap;flex:none}
+  .header-mint-btn:hover{background:var(--pink-deep)}
+  @media(max-width:640px){.header-mint-btn{padding:7px 13px;font-size:13px}}
+  nav{margin-left:auto;display:flex;gap:22px;align-items:center}
+  nav a{text-decoration:none;font-weight:600;font-size:14px;color:var(--muted)}
+  nav a:hover{color:var(--pink-deep)}
+  @media(max-width:640px){nav{display:none}}
+  .lang-toggle{display:flex;gap:0;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--surface);flex:none;margin-left:4px}
+  .lang-toggle button{appearance:none;border:none;background:transparent;color:var(--muted);font-family:inherit;font-weight:700;font-size:12.5px;padding:7px 13px;cursor:pointer;letter-spacing:.04em;line-height:1}
+  .lang-toggle button[aria-pressed="true"]{background:var(--pink);color:#fff}
+  .lang-toggle button:focus-visible{outline:2px solid var(--pink-deep);outline-offset:-2px}
+  @media(max-width:640px){.bar{gap:10px}.lang-toggle{margin-left:auto}}
+
+  /* hamburger + mobile menu */
+  .hamburger{display:none;appearance:none;border:1px solid var(--line);background:var(--surface);width:42px;height:42px;border-radius:12px;cursor:pointer;flex:none;padding:0}
+  .hamburger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;margin:0 auto;transition:transform .25s ease,opacity .2s ease}
+  .hamburger span+span{margin-top:5px}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .hamburger:focus-visible{outline:2px solid var(--pink-deep);outline-offset:2px}
+  .mobile-menu{display:none;border-top:1px solid var(--line);background:var(--header);padding:6px 0 12px}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:flex;align-items:center;justify-content:space-between;text-decoration:none;font-weight:700;font-size:15.5px;padding:11px 2px;border-bottom:1px solid var(--line);color:var(--ink)}
+  .mobile-menu a:last-child{border-bottom:none}
+  .mobile-menu a .arr{color:var(--pink);font-size:13px;flex:none;margin-left:10px}
+  .mobile-menu a.x-m{color:var(--pink-deep)}
+  @media(max-width:640px){.badge{display:none}.hamburger{display:block}}
+  @media(min-width:641px){.mobile-menu{display:none!important}}
+
+  .preview-banner{background:#fff3d0;border-bottom:2px solid #d99a00;color:#6b4e00;text-align:center;font-weight:700;font-size:14px;padding:12px 16px;position:relative;z-index:3}
+  @media (prefers-color-scheme: dark){.preview-banner{background:#3d3115;color:#f0b93c;border-color:#f0b93c}}
+
+  /* faq */
+  .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .faq-item{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .faq-item summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:12px}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary .q-heart{color:#f06292;flex:none}
+  .faq-item summary .chev{margin-left:auto;color:var(--pink-deep);transition:transform .25s ease;flex:none;font-size:14px}
+  .faq-item[open] summary .chev{transform:rotate(180deg)}
+  .faq-item .faq-a{padding:0 22px 18px;color:var(--muted);font-weight:500;font-size:15px}
+  .faq-item .faq-a b{color:var(--ink)}
+
+  /* floating hearts */
+  #hearts{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+  .heart{position:absolute;bottom:-4vh;font-size:14px;line-height:1;opacity:.7;animation:rise linear infinite}
+  .heart.gold{color:#e8a100}
+  .heart.pink{color:#f06292}
+  .heart.blue{color:#2f9be8}
+  @keyframes rise{0%{transform:translate3d(0,0,0) rotate(-8deg)}100%{transform:translate3d(-4vw,-108vh,0) rotate(24deg)}}
+  @media (prefers-reduced-motion: reduce){.heart{display:none}html{scroll-behavior:auto}}
+
+  main{position:relative;z-index:2}
+
+  /* hero */
+  .hero{text-align:center;padding:56px 0 8px}
+  .hero .jp{letter-spacing:.5em;font-size:13px;color:var(--muted);font-weight:600;margin-bottom:14px}
+  .hero h1{font-size:clamp(52px,11vw,96px);letter-spacing:.14em}
+  .hero h1 em{font-style:normal;color:var(--pink)}
+  .tagline{font-size:clamp(17px,3.4vw,21px);color:var(--muted);max-width:560px;margin:14px auto 0;font-weight:500}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:22px 0 34px}
+  .chip{font-size:13px;font-weight:700;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;color:var(--ink)}
+  .chip b{color:var(--pink-deep)}
+  .hero-art{max-width:620px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:18px}
+  .hero-art img{border-radius:18px;width:100%}
+  .hero-cap{font-size:13px;color:var(--muted);margin-top:12px;font-weight:600}
+  .hero-cap b{color:var(--pink-deep)}
+
+  section{padding:64px 0 8px}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 30px}
+  .sec-head h2{font-size:clamp(30px,6vw,42px);letter-spacing:.04em}
+  .sec-head p{color:var(--muted);margin:10px 0 0;font-weight:500}
+
+  /* grow viewer */
+  .viewer{background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);overflow:hidden}
+  .viewer-grid{display:grid;grid-template-columns:1fr 1fr}
+  @media(max-width:760px){.viewer-grid{grid-template-columns:1fr}}
+  .viewer-art{background:#fff;padding:14px;display:flex;align-items:center}
+  .viewer-art img{width:100%;border-radius:16px;transition:opacity .25s ease}
+  .viewer-info{padding:30px 30px 34px;display:flex;flex-direction:column;justify-content:center}
+  .stage-kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .viewer-info h3{font-size:34px;margin:8px 0 4px}
+  .rarity-pill{display:inline-flex;align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin:8px 0 12px}
+  .viewer-info p{color:var(--muted);margin:0;font-weight:500}
+  .steps{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:22px 0 0}
+  .step-btn{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-family:inherit;font-weight:700;font-size:13px;padding:10px 14px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:8px}
+  .step-btn .n{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--blush);color:var(--pink-deep);align-items:center;justify-content:center;font-size:12px}
+  .step-btn[aria-pressed="true"]{background:var(--pink);border-color:var(--pink);color:#fff}
+  .step-btn[aria-pressed="true"] .n{background:rgba(255,255,255,.25);color:#fff}
+  .progress{height:6px;background:var(--blush);border-radius:99px;margin:24px auto 0;max-width:520px;overflow:hidden}
+  .progress i{display:block;height:100%;background:linear-gradient(90deg,#a8d8f8,var(--pink));border-radius:99px;transition:width .35s ease}
+
+  .r-common{background:var(--green-bg);color:var(--green)}
+  .r-uncommon{background:#e2f0f7;color:#3d7ea6} @media(prefers-color-scheme:dark){.r-uncommon{background:#1e3442;color:#8fc6e5}}
+  .r-rare{background:var(--blush);color:var(--pink-deep)}
+  .r-epic{background:var(--violet-bg);color:var(--violet)}
+  .r-legendary{background:var(--gold-bg);color:var(--gold)}
+  .r-limited{background:var(--ink);color:var(--bg)}
+
+  /* gallery */
+  .grid{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;-webkit-overflow-scrolling:touch}
+  .grid .card{flex:0 0 272px;scroll-snap-align:start}
+  @media(max-width:560px){.grid .card{flex-basis:236px}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;text-align:left;font-family:inherit;color:inherit;cursor:pointer;padding:0;box-shadow:0 4px 16px rgba(28,111,184,.06);transition:transform .18s ease, box-shadow .18s ease;width:100%}
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .card .art{background:#fff;padding:10px}
+  .card .art img{border-radius:14px;width:100%;aspect-ratio:3/2;object-fit:cover}
+  .card .body{padding:16px 18px 18px}
+  .card .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .card h3{font-size:21px}
+  .card p{color:var(--muted);font-size:14px;margin:6px 0 0;font-weight:500}
+  .stage-no{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--muted)}
+  .card .rarity-pill{margin:0}
+
+  /* ladder */
+  .ladder{background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+  .lrow{display:flex;align-items:center;gap:14px;padding:15px 20px;border-bottom:1px solid var(--line)}
+  .lrow:last-child{border-bottom:none}
+  .lrow .thumb{width:52px;height:52px;border-radius:12px;object-fit:cover;background:#fff;border:1px solid var(--line);flex:none}
+  .lrow .nm{font-weight:700}
+  .lrow .ds{color:var(--muted);font-size:13.5px;font-weight:500}
+  .lrow .rarity-pill{margin:0 0 0 auto;flex:none}
+  @media(max-width:560px){.lrow .ds{display:none}}
+
+  /* limited spotlight */
+  .spot{background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr}
+  @media(max-width:760px){.spot{grid-template-columns:1fr}}
+  .spot .art{background:#fff;padding:14px}
+  .spot .art img{border-radius:18px;width:100%}
+  .spot .info{padding:34px 30px;display:flex;flex-direction:column;justify-content:center}
+  .spot h3{font-size:clamp(28px,5vw,38px);margin:10px 0}
+  .spot p{color:var(--muted);margin:0 0 14px;font-weight:500}
+  .spot ul{margin:0;padding:0;list-style:none}
+  .spot li{padding:7px 0 7px 26px;position:relative;font-weight:600;font-size:15px}
+  .spot li::before{content:"♥";position:absolute;left:0;color:#f06292}
+
+  .v-count{margin-top:14px;font-weight:700;font-size:13.5px;color:var(--pink-deep)}
+
+  /* contract addresses */
+  .contract-box{margin-top:18px;background:var(--surface2);border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-align:left}
+  .contract-box.center{max-width:760px;margin-left:auto;margin-right:auto;text-align:center}
+  .contract-label{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .contract-addr{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.5;word-break:break-all;color:var(--ink)}
+  .contract-meta{margin-top:8px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:13px;font-weight:600;color:var(--muted)}
+  .contract-box.center .contract-meta{justify-content:center}
+  .contract-meta .minted-stat{color:var(--pink-deep);font-weight:700}
+  .bsc-link{color:var(--pink-deep);font-weight:700;text-decoration:none;white-space:nowrap}
+  .bsc-link:hover{text-decoration:underline}
+
+  /* mint pricing */
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:900px){.price-grid{grid-template-columns:1fr}}
+  .price-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px 22px;box-shadow:0 4px 16px rgba(28,111,184,.06)}
+  .price-card.featured{border-color:var(--pink);box-shadow:var(--shadow)}
+  .pc-tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .pc-price{font-family:"Marcellus",serif;font-size:38px;margin:8px 0 10px}
+  .pc-price span{font-size:17px;color:var(--pink-deep)}
+  .price-card p{color:var(--muted);margin:0;font-weight:500;font-size:15px}
+  .price-card p b{color:var(--ink)}
+  .rules{list-style:none;margin:22px 0 0;padding:20px 24px;background:var(--surface);border:1px solid var(--line);border-radius:22px}
+  .rules li{padding:6px 0 6px 26px;position:relative;font-weight:500;color:var(--muted)}
+  .rules li::before{content:"♥";position:absolute;left:0;color:#f06292}
+  .rules li b{color:var(--ink)}
+  .pack-figure{margin:22px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:0 4px 16px rgba(28,111,184,.06)}
+  .pack-figure img{display:block;width:100%;height:auto;border-radius:14px}
+  .pack-figure figcaption{margin-top:12px;text-align:center;color:var(--muted);font-weight:600;font-size:14.5px}
+  .example-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;align-items:start}
+  @media(max-width:900px){.example-grid{grid-template-columns:1fr}}
+  .example-figure{margin:0}
+  .example-figure img{background:#fff}
+  .mint-cta{text-align:center;margin-top:26px}
+  .mint-note{color:var(--muted);font-size:13.5px;font-weight:500;margin-top:12px}
+  .mint-btn{appearance:none;border:none;background:var(--pink-soft);color:var(--pink-deep);font-family:inherit;font-weight:700;font-size:16px;padding:14px 34px;border-radius:999px;cursor:not-allowed;opacity:.85}
+  @media(prefers-color-scheme:dark){.mint-btn{color:#f7c3d6}}
+  .mint-btn.live{background:var(--pink);color:#fff;cursor:pointer;opacity:1;box-shadow:var(--shadow)}
+  .mint-btn.live:hover{background:var(--pink-deep)}
+  .mint-btn.live:disabled{background:var(--pink-soft);color:var(--pink-deep);cursor:wait;opacity:.85;box-shadow:none}
+  .mint-btn:focus-visible,.mint-sub-btn:focus-visible,.qty-btn:focus-visible{outline:2px solid var(--pink-deep);outline-offset:2px}
+
+  /* live mint panel */
+  .mint-panel{max-width:560px;margin:22px auto 0;background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:0 4px 16px rgba(28,111,184,.06);padding:22px;text-align:left}
+  .mint-panel[hidden]{display:none}
+  .mp-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .mp-row + .mp-row{margin-top:16px}
+  .mp-label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);flex:none}
+  .wallet-addr{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;word-break:break-all;color:var(--ink);font-weight:600}
+  .qty-toggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--surface)}
+  .qty-btn{appearance:none;border:none;background:transparent;color:var(--muted);font-family:inherit;font-weight:700;font-size:14px;padding:9px 18px;cursor:pointer;line-height:1.2}
+  .qty-btn[aria-pressed="true"]{background:var(--pink);color:#fff}
+  .qty-note{font-size:13px;color:var(--muted);font-weight:600}
+  .mp-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .mint-sub-btn{appearance:none;border:1px solid var(--pink);background:var(--surface);color:var(--pink-deep);font-family:inherit;font-weight:700;font-size:14.5px;padding:12px 20px;border-radius:999px;cursor:pointer;flex:1 1 200px}
+  .mint-sub-btn.primary{background:var(--pink);color:#fff}
+  .mint-sub-btn.primary:hover{background:var(--pink-deep)}
+  .mint-sub-btn:hover{background:var(--blush)}
+  .mint-sub-btn:disabled{opacity:.55;cursor:not-allowed}
+  .mint-status{margin-top:16px;font-size:14px;font-weight:600;color:var(--muted);min-height:1.4em;word-break:break-word}
+  .mint-status.ok{color:var(--green)}
+  .mint-status.err{color:#c0392b}
+  @media(prefers-color-scheme:dark){.mint-status.err{color:#ff9d8f}}
+  .mint-status a{color:var(--pink-deep);font-weight:700}
+
+  /* ── live status — honey pot ── */
+  .live-card{background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:30px 28px;display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;max-width:860px;margin:0 auto}
+  @media(max-width:700px){.live-card{grid-template-columns:1fr;justify-items:center;text-align:center;padding:26px 20px}}
+  .honey-scene{display:flex;flex-direction:column;align-items:center;flex:none}
+  .honey-bee{font-size:44px;line-height:1;animation:beeBob 3.2s ease-in-out infinite;filter:drop-shadow(0 4px 6px rgba(0,0,0,.18))}
+  @keyframes beeBob{0%,100%{transform:translate(0,0) rotate(-6deg)}50%{transform:translate(10px,-10px) rotate(8deg)}}
+  .honey-pot{--grow:0;position:relative;width:248px;height:216px;margin-top:6px;border-radius:34% 34% 44% 44%/26% 26% 62% 62%;overflow:hidden;background:linear-gradient(180deg,#fffdf4,#fdf3d7);border:3px solid #d99a00;box-shadow:inset 0 -18px 34px rgba(217,154,0,.18),inset 0 10px 24px rgba(255,255,255,.7),0 18px 38px rgba(217,154,0,.20)}
+  @media(prefers-color-scheme:dark){.honey-pot{background:linear-gradient(180deg,#2e2612,#241c0c);border-color:#f0b93c}}
+  .honey-fill{position:absolute;left:0;right:0;bottom:0;height:0%;background:linear-gradient(180deg,#ffd34d,#f0a500);transition:height 1s ease}
+  .honey-fill::before{content:"";position:absolute;top:-9px;left:0;right:0;height:18px;background:radial-gradient(circle at 18% 50%,#ffe9a3 8px,transparent 9px),radial-gradient(circle at 52% 50%,#ffe9a3 11px,transparent 12px),radial-gradient(circle at 84% 50%,#ffe9a3 8px,transparent 9px)}
+  .honey-label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.2))}
+  .honey-dot{position:absolute;font-size:15px;color:#f06292;opacity:0;transition:opacity .8s ease;animation:heartFloat 4s ease-in-out infinite}
+  .honey-dot.on{opacity:.95}
+  @keyframes heartFloat{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-6px) rotate(10deg)}}
+  .honey-shine{position:absolute;top:10%;left:12%;width:56px;height:30px;border-radius:50%;background:rgba(255,255,255,.75);filter:blur(7px);transform:rotate(-24deg);pointer-events:none}
+  .honey-base{width:118px;height:20px;margin-top:-4px;background:linear-gradient(180deg,var(--gold-bg),var(--pink-soft));border:1px solid var(--line);border-radius:6px 6px 16px 16px;box-shadow:var(--shadow)}
+  .honey-shadow{width:150px;height:14px;margin-top:10px;border-radius:50%;background:rgba(217,154,0,.18);filter:blur(5px)}
+
+  /* paid pool counter (inside live card) */
+  .live-paid{margin-top:16px;border-top:1px dashed var(--line);padding-top:14px;text-align:left}
+  .live-paid-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .live-paid-label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .live-paid-count{margin-left:auto;font-family:"Marcellus",serif;font-size:24px;line-height:1.1;color:var(--ink);white-space:nowrap}
+  .live-paid-count b{color:var(--pink-deep)}
+  .live-paid .live-bar{margin:10px 0 6px}
+  .live-paid-left{font-size:13px;font-weight:700;color:var(--pink-deep)}
+  @media(max-width:700px){.live-paid{text-align:center}.live-paid-head{justify-content:center}.live-paid-count{margin-left:0}}
+
+  /* 5-pack spotlight */
+  .pack-spot{max-width:860px;margin:0 auto;background:#fff8e1;border:2px solid #d99a00;border-radius:28px;box-shadow:0 12px 32px rgba(217,154,0,.16);padding:34px 32px;text-align:center}
+  @media(prefers-color-scheme:dark){.pack-spot{background:#2e2612;border-color:#e8bc55}}
+  .pack-spot .ps-tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#d99a00;background:var(--surface);border:1px solid #d99a00;padding:5px 13px;border-radius:999px}
+  @media(prefers-color-scheme:dark){.pack-spot .ps-tag{color:#e8bc55;border-color:#e8bc55}}
+  .pack-spot h3{font-size:clamp(26px,5.4vw,38px);margin:16px 0 10px}
+  .pack-spot p{color:var(--muted);font-weight:500;max-width:620px;margin:0 auto}
+  .pack-spot p b{color:var(--ink)}
+  .ps-facts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:20px 0 24px}
+  .ps-fact{font-size:14px;font-weight:700;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 15px;color:var(--ink)}
+  .ps-fact b{color:#d99a00}
+  @media(prefers-color-scheme:dark){.ps-fact b{color:#e8bc55}}
+  .ps-btn{appearance:none;border:none;background:#d99a00;color:#fff;font-family:inherit;font-weight:800;font-size:17px;padding:16px 36px;border-radius:999px;cursor:pointer;box-shadow:0 10px 24px rgba(217,154,0,.3)}
+  .ps-btn:hover{background:#b57e00}
+  .ps-btn:focus-visible{outline:3px solid var(--pink-deep);outline-offset:2px}
+  @media(prefers-color-scheme:dark){.ps-btn{background:#e8bc55;color:#1d1319}.ps-btn:hover{background:#d9a92f}}
+  @keyframes packFlash{0%,100%{box-shadow:0 8px 24px rgba(217,154,0,.14)}50%{box-shadow:0 0 0 6px rgba(217,154,0,.45),0 8px 24px rgba(217,154,0,.3)}}
+  .mint-group-pack.flash{animation:packFlash .8s ease-in-out 2}
+  @media (prefers-reduced-motion: reduce){.mint-group-pack.flash{animation:none;outline:3px solid #d99a00}}
+
+  /* recent mints feed */
+  .recent-card{max-width:860px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:10px 28px}
+  @media(max-width:700px){.recent-card{padding:6px 18px}}
+  .recent-status{font-size:13px;font-weight:600;color:var(--muted);padding:12px 0 4px;text-align:center}
+  .recent-status:empty{display:none}
+  .recent-list{list-style:none;margin:0;padding:0}
+  .recent-item{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .recent-item:last-child{border-bottom:none}
+  .recent-id{font-weight:800;font-size:16px;color:var(--ink);white-space:nowrap}
+  .recent-item .rarity-pill{margin:0;flex:none}
+  .recent-tier{font-weight:700;font-size:14.5px;color:var(--ink)}
+  .recent-meta{margin-left:auto;text-align:right;font-size:12.5px;font-weight:600;color:var(--muted);line-height:1.45}
+  .recent-meta .recent-addr{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px}
+  @media(max-width:560px){.recent-meta{margin-left:0;text-align:left;width:100%}}
+  @media (prefers-reduced-motion: reduce){.honey-pot,.honey-dot,.honey-bee,.live-pill.open .live-dot{animation:none}.crystal-tree img,.live-bar i{transition:none}}
+
+  /* ── big direct mint buttons ── */
+  .mint-actions-big{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;text-align:left}
+  @media(max-width:640px){.mint-actions-big{grid-template-columns:1fr}}
+  .bmb-wrap{display:flex;flex-direction:column}
+  .big-mint-btn{appearance:none;font-family:inherit;cursor:pointer;border-radius:20px;padding:20px 18px 18px;display:flex;flex-direction:column;gap:5px;align-items:flex-start;text-align:left;width:100%;flex:1;transition:transform .15s ease,background .15s ease}
+  .big-mint-btn .bmb-tag{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;opacity:.85}
+  .big-mint-btn .bmb-title{font-size:21px;font-weight:700;line-height:1.25}
+  .big-mint-btn .bmb-sub{font-size:13.5px;font-weight:600;opacity:.85;line-height:1.5}
+  .big-mint-btn.free{background:var(--surface);border:2px solid var(--green);color:var(--ink)}
+  .big-mint-btn.free .bmb-tag{color:var(--green)}
+  .big-mint-btn.free:hover:not(:disabled){background:var(--green-bg)}
+  .big-mint-btn.paid{background:var(--pink);border:2px solid var(--pink);color:#fff;box-shadow:var(--shadow)}
+  .big-mint-btn.paid:hover:not(:disabled){background:var(--pink-deep);border-color:var(--pink-deep)}
+  .big-mint-btn:disabled{opacity:.5;cursor:not-allowed;box-shadow:none;transform:none}
+  .big-mint-btn:focus-visible{outline:3px solid var(--pink-deep);outline-offset:2px}
+  .bmb-reason{font-size:13px;font-weight:600;color:var(--muted);margin-top:8px;min-height:1.35em}
+  .bmb-reason.ok{color:var(--green)}
+  .agent-mini-btn{appearance:none;width:100%;margin-top:10px;background:var(--surface);border:1.5px dashed var(--pink);color:var(--pink-deep);font-family:inherit;font-weight:700;font-size:14px;padding:11px 14px;border-radius:999px;cursor:pointer;line-height:1.35}
+  .agent-mini-btn:hover{background:var(--blush)}
+  .agent-mini-btn:focus-visible{outline:3px solid var(--pink-deep);outline-offset:2px}
+
+  /* ── 3 separated mint groups ── */
+  .mint-groups{display:flex;flex-direction:column;gap:20px;margin-top:20px}
+  .mint-group{border-radius:20px;padding:18px 16px 16px;text-align:left;position:relative}
+  .mint-group-free{background:var(--green-bg);border:2px solid var(--green)}
+  .mint-group-single{background:var(--surface);border:2px solid var(--pink);box-shadow:0 6px 20px rgba(28,111,184,.08)}
+  .mint-group-pack{background:#fff8e1;border:2px solid #d99a00;box-shadow:0 8px 24px rgba(217,154,0,.14)}
+  @media(prefers-color-scheme:dark){.mint-group-pack{background:#2e2612;border-color:#e8bc55}}
+  .mg-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+  .mg-step{flex:none;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;background:var(--pink)}
+  .mint-group-free .mg-step{background:var(--green)}
+  .mint-group-pack .mg-step{background:#d99a00}
+  @media(prefers-color-scheme:dark){.mint-group-pack .mg-step{background:#e8bc55;color:#1d1319}}
+  .mg-head-main{flex:1;min-width:0}
+  .mg-title{font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;line-height:1.3;color:var(--ink)}
+  .mg-desc{font-size:13px;font-weight:600;color:var(--muted);line-height:1.45;margin-top:2px}
+  .mg-price{flex:none;font-family:"Marcellus",serif;font-size:15px;font-weight:700;background:var(--surface);border:1px solid var(--line);padding:6px 10px;border-radius:999px;white-space:nowrap;color:var(--ink)}
+  .mint-group-pack .mg-price{background:#d99a00;color:#fff;border-color:#d99a00}
+  @media(prefers-color-scheme:dark){.mint-group-pack .mg-price{background:#e8bc55;color:#1d1319;border-color:#e8bc55}}
+  .qty-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:4px 0 12px}
+  @media(max-width:420px){.qty-grid{grid-template-columns:repeat(2,1fr)}}
+  .qty-choice{appearance:none;border:1.5px solid var(--line);background:var(--surface2);color:var(--ink);border-radius:16px;padding:12px 6px 10px;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1.2;min-height:64px;justify-content:center}
+  .qty-choice .qc-num{font-size:22px;font-weight:800;line-height:1}
+  .qty-choice .qc-price{font-size:11.5px;font-weight:700;color:var(--muted)}
+  .qty-choice[aria-pressed="true"]{background:var(--pink);border-color:var(--pink);color:#fff;box-shadow:0 6px 16px rgba(28,111,184,.25)}
+  .qty-choice[aria-pressed="true"] .qc-price{color:rgba(255,255,255,.9)}
+  .qty-choice:focus-visible{outline:3px solid var(--pink-deep);outline-offset:2px}
+  .single-summary{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;justify-content:space-between;background:var(--blush);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:12px}
+  .single-summary strong{font-size:14.5px;color:var(--ink)}
+  .single-summary span{font-size:13px;font-weight:700;color:var(--pink-deep)}
+  .big-mint-btn.pack{background:#d99a00;border:2px solid #d99a00;color:#fff;box-shadow:0 10px 24px rgba(217,154,0,.22)}
+  .big-mint-btn.pack:hover:not(:disabled){background:#b57e00;border-color:#b57e00}
+  @media(prefers-color-scheme:dark){.big-mint-btn.pack{background:#e8bc55;border-color:#e8bc55;color:#1d1319}.big-mint-btn.pack:hover:not(:disabled){background:#d9a92f;border-color:#d9a92f}}
+  .pack-note{font-size:13px;font-weight:600;color:var(--muted);line-height:1.55;margin:10px 2px 0}
+  .pack-note b{color:var(--ink)}
+  .mg-divider{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+  .mg-divider::before,.mg-divider::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  /* floating mint button */
+  body{padding-bottom:84px}
+  .float-mint{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:60;display:inline-flex;align-items:center;background:var(--pink-soft);color:var(--pink-deep);font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px;border-radius:999px;box-shadow:0 12px 28px rgba(28,111,184,.28);border:1px solid var(--line)}
+  .float-mint.live{background:var(--pink);color:#fff;border-color:transparent}
+  .float-mint.live:hover{background:var(--pink-deep)}
+  .float-mint:focus-visible{outline:2px solid var(--pink-deep);outline-offset:2px}
+  @media(prefers-color-scheme:dark){.float-mint{color:#f7c3d6}.float-mint.live{color:#fff}}
+  @media(max-width:640px){.float-mint{right:14px;bottom:calc(14px + env(safe-area-inset-bottom));font-size:14px;padding:12px 18px}}
+
+  /* priority lane — agent prompt mint + Agent ID checker */
+  .agent-lane{max-width:760px;margin:22px auto 0;background:var(--surface);border:1px solid var(--pink);border-radius:22px;box-shadow:var(--shadow);padding:24px 22px;text-align:left}
+  .agent-lane h3{font-size:20px;margin:0 0 8px}
+  .agent-lane h4{font-family:"Noto Serif JP","Marcellus",serif;font-weight:600;font-size:17px;margin:22px 0 6px}
+  .agent-lane p{color:var(--muted);font-weight:500;margin:0;font-size:15px}
+  .lane-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .agent-prompt-box{margin-top:14px}
+  .agent-prompt-box[hidden]{display:none}
+  .codebox{background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.65;word-break:break-word;color:var(--ink)}
+  .lane-note{margin-top:10px;font-size:13.5px;color:var(--muted);font-weight:500}
+  .lane-check-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .lane-check-row input{flex:1 1 260px;appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;padding:12px 16px;border-radius:999px;min-width:0}
+  .lane-check-row input:focus-visible{outline:2px solid var(--pink-deep);outline-offset:1px}
+  .lane-check-row .mint-sub-btn{flex:0 1 auto}
+
+  /* token */
+  .token-card{background:var(--surface);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:30px 28px;text-align:center}
+  .tk-big{font-family:"Marcellus",serif;font-size:clamp(38px,7vw,52px);color:var(--pink-deep);line-height:1.1}
+  .tk-big span{display:block;font-family:"Quicksand",sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .tk-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0 6px}
+  @media(max-width:760px){.tk-stats{grid-template-columns:repeat(2,1fr)}}
+  .tk-stats div{background:var(--surface2);border:1px solid var(--line);border-radius:16px;padding:14px 10px}
+  .tk-stats b{display:block;font-size:17px}
+  .tk-stats span{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .tk-note{color:var(--muted);font-weight:500;max-width:540px;margin:14px auto 0}
+
+  .tk-ladder{max-width:520px;margin:22px auto 0;text-align:left;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .tk-lrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;border-bottom:1px solid var(--line);background:var(--surface)}
+  .tk-lrow:last-child{border-bottom:none}
+  .tk-lrow b{font-size:15px;white-space:nowrap}
+  .tk-lrow .rarity-pill{margin:0}
+
+  footer{padding:52px 0 40px;text-align:center;color:var(--muted);font-size:13.5px;font-weight:500}
+  footer .fb{font-family:"Marcellus",serif;letter-spacing:.22em;font-size:17px;color:var(--ink);margin-bottom:6px}
+  footer .fb span{color:var(--pink)}
+
+  .en-sub{display:block;font-family:"Quicksand",sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+  .x-link{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-weight:700;font-size:13.5px;color:var(--pink-deep);background:var(--blush);border:1px solid var(--line);padding:7px 14px;border-radius:999px;white-space:nowrap}
+  .trade-element-btn{display:inline-flex;align-items:center;align-self:flex-start;text-decoration:none;font-weight:700;font-size:15px;color:#fff;background:var(--pink);padding:12px 22px;border-radius:999px;box-shadow:var(--shadow);margin:4px 0 18px}
+  .trade-element-btn:hover{background:var(--pink-deep)}
+  .trade-element-btn:focus-visible{outline:2px solid var(--pink-deep);outline-offset:2px}
+  .x-link:hover{background:var(--pink-soft)}
+  nav a.x-nav{color:var(--pink-deep)}
+  .hero .en-line{font-family:"Quicksand",sans-serif;font-size:14.5px;color:var(--muted);max-width:560px;margin:8px auto 0;font-weight:500}
+  .stage-en{font-family:"Quicksand",sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:100;background:rgba(30,12,20,.82);display:none;align-items:center;justify-content:center;padding:20px}
+  .lb.open{display:flex}
+  .lb figure{background:var(--surface);border-radius:24px;max-width:520px;width:100%;padding:14px;margin:0;max-height:92vh;overflow:auto}
+  .lb img{width:100%;border-radius:16px;background:#fff}
+  .lb figcaption{padding:14px 6px 6px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .lb figcaption h3{font-size:22px}
+  .lb-close{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);width:40px;height:40px;border-radius:50%;font-size:18px;cursor:pointer;flex:none}
+</style>
+</head>
+<body>
+
+<div id="hearts" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">BIRD<span> &amp; BEES</span></a>
+    <span class="badge" data-lkey="badge">プレビュー — 近日公開</span>
+    <a class="header-mint-btn" href="#mint" data-lkey="navMint">ミント</a>
+    <div class="lang-toggle" role="group" aria-label="Language / 言語">
+      <button type="button" id="langJa" aria-pressed="true">日本語</button>
+      <button type="button" id="langEn" aria-pressed="false">EN</button>
+    </div>
+    <button type="button" class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobileMenu" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <a href="#live" data-lkey="navLive">ライブ</a>
+      <a href="#grow" data-lkey="navGrow">出会い</a>
+      <a href="#collection" data-lkey="navCollection">コレクション</a>
+      <a href="#rarity" data-lkey="navRarity">レアリティ</a>
+      <a href="#mint" data-lkey="navMint">ミント</a>
+      <a href="#token" data-lkey="navToken">トークン</a>
+      <a href="#market" data-lkey="navMarket">マーケット</a>
+      <a href="#faq" data-lkey="navFaq">FAQ</a>
+      <a class="x-nav" href="https://x.com/intent/post?text=%F0%9F%90%A6%F0%9F%90%9D%20Bird%20and%20The%20Bees%20%E2%80%94%204%2C444%20birds%20%26%20bees%20on%20BNB%20Chain%20%F0%9F%92%9B%20https%3A%2F%2Fbntb.fun%2F" target="_blank" rel="noopener" data-lkey="navX">Xでシェア</a>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="wrap">
+      <a href="#live"><span data-lkey="navLive">ライブ</span><span class="arr">→</span></a>
+      <a href="#grow"><span data-lkey="navGrow">出会い</span><span class="arr">→</span></a>
+      <a href="#collection"><span data-lkey="navCollection">コレクション</span><span class="arr">→</span></a>
+      <a href="#rarity"><span data-lkey="navRarity">レアリティ</span><span class="arr">→</span></a>
+      <a href="#limited"><span data-lkey="navLimited">限定</span><span class="arr">→</span></a>
+      <a href="#mint"><span data-lkey="navMint">ミント</span><span class="arr">→</span></a>
+      <a href="#token"><span data-lkey="navToken">トークン</span><span class="arr">→</span></a>
+      <a href="#market"><span data-lkey="navMarket">マーケット</span><span class="arr">→</span></a>
+      <a href="#faq"><span data-lkey="navFaq">FAQ</span><span class="arr">→</span></a>
+      <a class="x-m" href="https://x.com/intent/post?text=%F0%9F%90%A6%F0%9F%90%9D%20Bird%20and%20The%20Bees%20%E2%80%94%204%2C444%20birds%20%26%20bees%20on%20BNB%20Chain%20%F0%9F%92%9B%20https%3A%2F%2Fbntb.fun%2F" target="_blank" rel="noopener"><span data-lkey="navX">Xでシェア</span><span class="arr">↗</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="preview-banner"><span data-lkey="previewBanner">プレビュー — コントラクトはまだデプロイされていません。ミントは開始していません。表示されている価格と数量は予定です。</span></div>
+
+  <!-- HERO -->
+  <div class="wrap hero">
+    <div class="jp">バード・アンド・ビーズ — Bird and The Bees</div>
+    <h1>BIRD <em>&amp; BEES</em></h1>
+    <p class="tagline" data-lkey="heroTagline">青い鳥と黄色いミツバチ — 空と花畑のあいだで生まれた、ちいさな恋の物語。4,444羽の仲間たちが、あなたのウォレットで待っています。</p>
+    <p class="en-line" data-lkey="heroSub">A little blue bird, a little yellow bee — a tiny love story between the sky and the flowers.</p>
+    <div class="chips">
+      <span class="chip" data-lkey="chipSupply">総供給量 <b>4,444</b></span>
+      <span class="chip" data-lkey="chipFree">ミント #1 <b>無料</b> · Agent ID</span>
+      <span class="chip" data-lkey="chipPaid">有料 <b>0.0005 BNB</b></span>
+      <span class="chip" data-lkey="chipPack">5個まとめ <b>0.0024 BNB</b></span>
+    </div>
+    <div style="margin:-14px 0 26px"><a class="x-link" href="https://x.com/intent/post?text=%F0%9F%90%A6%F0%9F%90%9D%20Bird%20and%20The%20Bees%20%E2%80%94%204%2C444%20birds%20%26%20bees%20on%20BNB%20Chain%20%F0%9F%92%9B%20https%3A%2F%2Fbntb.fun%2F" target="_blank" rel="noopener" data-lkey="xFollow">Xでシェアする</a></div>
+    <div class="hero-art">
+      <img src="assets/3-rare-lovebirds.png" alt="頬を寄せ合う青い鳥と黄色いミツバチ、ピンクのハート付き" />
+      <div class="hero-cap" data-lkey="heroCap">Lovebirds — <b>青い鳥とミツバチ</b>、コレクションの心臓部</div>
+    </div>
+  </div>
+
+  <!-- LIVE STATUS — CRYSTAL BALL -->
+  <section id="live" style="padding-top:44px">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-lkey="liveTitle">ライブミント状況<span class="en-sub">Live Mint Status</span></h2>
+        <p data-lkey="liveDesc">ハニーポットの中のハチミツは、ミントが進むほどいっぱいになります — 状況は30秒ごとにチェーンから自動更新されます。</p>
+      </div>
+      <div class="live-card">
+        <div class="honey-scene" aria-hidden="true">
+          <div class="honey-bee" id="honeyBee">🐝</div>
+          <div class="honey-pot" id="honeyPot">
+            <div class="honey-fill" id="honeyFill"></div>
+            <div class="honey-label">🍯</div>
+            <div id="honeyDots"></div>
+            <div class="honey-shine"></div>
+          </div>
+          <div class="honey-base"></div>
+          <div class="honey-shadow"></div>
+        </div>
+        <div class="live-stats">
+          <span class="live-pill" id="livePill"><span class="live-dot"></span><span id="livePillText" data-lkey="liveChecking">チェーン確認中…</span></span>
+          <div class="live-big"><span id="liveMinted">–</span> / 4,444</div>
+          <div class="live-sub" data-lkey="liveMintedLabel">ミント済み</div>
+          <div class="live-bar" aria-hidden="true"><i id="liveBar"></i></div>
+          <div class="live-row">
+            <span><b id="livePct">–</b> <span data-lkey="liveSold">販売済み</span></span>
+            <span><b id="liveRemaining">–</b> <span data-lkey="liveRemainingLabel">残り</span></span>
+          </div>
+          <div class="live-top" id="liveTop">
+            <div class="live-top-row">
+              <span class="live-top-ico" aria-hidden="true">💎</span>
+              <span><b id="liveLimited">–</b> <span data-lkey="liveLimitedLabel">True Love（リミテッド）</span></span>
+              <span class="live-top-state" id="liveLimitedState">…</span>
+            </div>
+            <div class="live-top-row">
+              <span class="live-top-ico" aria-hidden="true">✨</span>
+              <span><b id="liveLegendary">–</b> <span data-lkey="liveLegendaryLabel">Royal Duo（レジェンダリー）残り</span></span>
+              <span class="live-top-state" id="liveLegendaryState">…</span>
+            </div>
+            <p class="live-top-note" data-lkey="liveTopNote">レジェンダリーとリミテッドは、単品ミントでも当たります（確率はとても小さい）。5個パックならチャンスが少しアップ。</p>
+          </div>
+          <div class="live-paid">
+            <div class="live-paid-head">
+              <span class="live-paid-label" data-lkey="livePaidLabel">有料ミント済み</span>
+              <span class="live-paid-count"><b id="livePaidCount">–</b> / 1,444</span>
+            </div>
+            <div class="live-bar" aria-hidden="true"><i id="livePaidBar"></i></div>
+            <div class="live-paid-left" id="livePaidLeft">…</div>
+          </div>
+          <div><span class="live-stage" id="liveStage">🌱</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5-PACK SPOTLIGHT -->
+  <section id="packspot" style="padding-top:36px">
+    <div class="wrap">
+      <div class="pack-spot">
+        <span class="ps-tag" data-lkey="packSpotTag">5個パック · 5回のチャンス</span>
+        <h3 data-lkey="packSpotTitle">5回抽選 + ちょっとの幸運 — 上位レアリティのチャンスアップ</h3>
+        <p data-lkey="packSpotBody">単品ミントでも <b>Royal Duo（レジェンダリー・全63羽）</b> と <b>True Love（世界に1点）</b> は当たります — 確率はとても小さいですが。5個パックなら5回抽選でき、さらに1回ごとに20分の1の確率でトッププールへ振り替え。しかも単品5回より0.0001 BNBお得です。</p>
+        <div class="ps-facts">
+          <span class="ps-fact" data-lkey="packSpotFact1">価格 <b>0.0024 BNB</b></span>
+          <span class="ps-fact" data-lkey="packSpotFact2">単品5回より <b>0.0001 BNB</b> お得</span>
+          <span class="ps-fact" data-lkey="packSpotFact3">ボーナス <b>最大32,000 BNTB / 枚</b></span>
+        </div>
+        <button type="button" class="ps-btn" id="packSpotBtn" data-lkey="packSpotBtn">5個パックでミントする →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT MINTS -->
+  <section id="recent" style="padding-top:36px">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-lkey="recentTitle">最近のミント<span class="en-sub">Recent Mints</span></h2>
+        <p data-lkey="recentDesc">チェーン上で確認された最新のミント — 60秒ごとに自動更新されます。</p>
+      </div>
+      <div class="recent-card">
+        <div class="recent-status" id="recentStatus" role="status" aria-live="polite"></div>
+        <ul class="recent-list" id="recentList"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROW -->
+  <section id="grow">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-lkey="growTitle">ふたりに出会おう<span class="en-sub">Meet the Duo</span></h2>
+        <p data-lkey="growDesc">青い鳥とミツバチ、6つの姿。ティアを選ぶと、レアリティが上がるにつれてふたりがどう変わるかが見られます。</p>
+      </div>
+      <div class="viewer">
+        <div class="viewer-grid">
+          <div class="viewer-art"><img id="vImg" src="DATA_URI_PLACEHOLDER" alt="" /></div>
+          <div class="viewer-info">
+            <div class="stage-kicker" id="vStage">ステージ 1 / 6</div>
+            <h3 id="vName">小さな苗木</h3>
+            <div class="stage-en" id="vEn">Small Seedling</div>
+            <span class="rarity-pill r-common" id="vRarity">コモン</span>
+            <p id="vDesc"></p>
+            <div class="v-count" id="vCount"></div>
+          </div>
+        </div>
+      </div>
+      <div class="steps" id="steps" role="group" aria-label="ティア"></div>
+      <div class="progress" aria-hidden="true"><i id="prog" style="width:16.6%"></i></div>
+    </div>
+  </section>
+
+  <!-- COLLECTION -->
+  <section id="collection">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-lkey="colTitle">コレクション<span class="en-sub">The Collection</span></h2>
+        <p data-lkey="colDesc">6つのアートワーク、ひとつの恋の物語 — 横にスワイプして、カードをタップすると大きく表示されます。</p>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- RARITY -->
+  <section id="rarity">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-lkey="rarTitle">レアリティ一覧<span class="en-sub">Rarity Ladder</span></h2>
+        <p data-lkey="rarDesc">レアになるほど、ふたりは輝く — 全4,444点をティアごとに紹介します。</p>
+      </div>
+      <div class="ladder" id="ladder"></div>
+    </div>
+  </section>
+
+  <!-- LIMITED -->
+  <section id="limited">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-lkey="limTitle">たったひとつの真実の愛<span class="en-sub">True Love</span></h2>
+        <p data-lkey="limDesc">頂点に立つのは、世界にひとつだけのふたり。</p>
+      </div>
+      <div class="spot">
+        <div class="art"><img src="assets/6-limited-truelove.png" alt="ピンクのハートとともに寄り添う青い鳥と黄色いミツバチの原画" /></div>
+        <div class="info">
+          <span class="rarity-pill r-limited" style="align-self:flex-start" data-lkey="limPill">リミテッド</span>
+          <h3 data-lkey="limH3">True Love</h3>
+          <p data-lkey="limP">青い鳥とミツバチが寄り添う、コレクションで最も希少な姿 — ピンクのハートと金色のきらめきに包まれた、世界にひとつだけのペア。</p>
+          <ul>
+            <li data-lkey="limLi1">6ティアの中で最も希少</li>
+            <li data-lkey="limLi2">ユーザーの原画そのままの、たった1点</li>
+            <li data-lkey="limLi3">すべてのペアが夢見る最終形態</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINT -->
+  <section id="mint">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-lkey="mintTitle">ミント<span class="en-sub">Mint</span></h2>
+        <p data-lkey="mintDesc">BNBチェーン上の4,444羽の鳥とミツバチ。最初のミントは Agent ID で無料 — 有料ミントは単品でも頂点に届くチャンスがあります。</p>
+      </div>
+      <div class="price-grid">
+        <div class="price-card">
+          <div class="pc-tag" data-lkey="pc1Tag">ミント #1 · Agent ID 限定</div>
+          <div class="pc-price" data-lkey="pc1Price">無料</div>
+          <p data-lkey="pc1P">1ウォレットにつき1回、Agent ID 保有者限定の無料ミント。無料ミントは必ず<b>Bluebird</b>（コモン）になります — 無料プールは全4,444点のうち3,000点です。</p>
+        </div>
+        <div class="price-card">
+          <div class="pc-tag" data-lkey="pc2Tag">ミント #2以降 · パブリック</div>
+          <div class="pc-price">0.0005 <span>BNB</span></div>
+          <p data-lkey="pc2P">どなたでも参加可能、Agent ID は不要です。有料ミントは<b>Honeybee</b>から<b>True Love</b>まで、すべてのティアが抽選対象です。</p>
+        </div>
+        <div class="price-card featured">
+          <div class="pc-tag" data-lkey="pc3Tag">5個まとめミント · パブリック</div>
+          <div class="pc-price">0.0024 <span>BNB</span></div>
+          <p data-lkey="pc3P">5羽を一度に、単品5回より少しお得に — 5回抽選 + トッププールへの振り替えチャンスで、上位3レアリティの当選確率が少しアップします。</p>
+        </div>
+      </div>
+      <div class="example-grid">
+        <figure class="pack-figure example-figure">
+          <img src="assets/1-common-bluebird.png" alt="オレンジ色のくちばしを持つ丸い青い鳥">
+          <figcaption data-lkey="freeCaption">無料ミントの例 — Bluebirdのみ</figcaption>
+        </figure>
+        <figure class="pack-figure example-figure">
+          <img src="assets/2-uncommon-honeybee.png" alt="青い羽と黒い縞を持つ丸い黄色いミツバチ">
+          <figcaption data-lkey="paidCaption">0.0005 BNBミントの例 — Uncommon / Rare / Epic / Legendary / Limited のいずれか</figcaption>
+        </figure>
+      </div>
+      <figure class="pack-figure">
+        <img src="assets/4-epic-golden.png" alt="金色の鳥と金色のミツバチ、きらめきとピンクのハート付き">
+        <figcaption data-lkey="packCaption">パック内容の一例 — 中身はランダムです</figcaption>
+      </figure>
+      <ul class="rules">
+        <li data-lkey="rule1"><b>1ウォレット最大6個</b> — 無料ミント1回 + 有料ミント5回。</li>
+        <li data-lkey="rule2"><b>ランダムミント</b> — ティアはミント時に抽選で決まり、順番には選べません。</li>
+        <li data-lkey="rule3"><b>有料プールは1,444点</b> — Honeybee 700 · Lovebirds 500 · Golden Duo 180 · Royal Duo 63 · True Love 1。</li>
+        <li data-lkey="rule4"><b>単品でも頂点に届く</b> — 有料ミントはすべて、レジェンダリー＆リミテッドの抽選対象です。5個パックはチャンスが少しアップ。</li>
+      </ul>
+      <div class="mint-cta">
+        <button class="mint-btn" type="button" id="mintBtn" disabled data-lkey="mintBtn">ミント — 近日公開</button>
+        <div class="mint-panel" id="mintPanel">
+          <div class="mp-row">
+            <span class="mp-label" data-lkey="mpWallet">ウォレット</span>
+            <span class="wallet-addr" id="walletAddr">未接続</span>
+          </div>
+          <div class="qty-note" id="walletInfo" style="margin-top:6px"></div>
+
+          <div class="mint-groups">
+            <!-- GROUP 1 — FREE / AGENT -->
+            <section class="mint-group mint-group-free" aria-labelledby="mgFreeTitle">
+              <div class="mg-head">
+                <span class="mg-step" aria-hidden="true">1</span>
+                <div class="mg-head-main">
+                  <div class="mg-title" id="mgFreeTitle" data-lkey="mgFreeTitle">無料 — Agent ID限定</div>
+                  <div class="mg-desc" data-lkey="mgFreeDesc">ミント #1 のみ • 1ウォレット1回 • 必ずBluebird（コモン）• 請求はエージェントのプロンプト経由のみ</div>
+                </div>
+                <span class="mg-price">0 BNB</span>
+              </div>
+              <p class="pack-note" data-lkey="freeAgentOnly">無料ミントは <b>Agent ID 保有者限定</b>で、請求は<b>エージェントのプロンプト経由のみ</b>です。このページに直接ミントするボタンはありません — Agent ID がないウォレットでは請求は失敗します。</p>
+              <button type="button" class="agent-mini-btn" id="agentFreeBtn">🤖 プロンプトをコピー — 無料ミント（0 BNB）</button>
+            </section>
+
+            <div class="mg-divider" aria-hidden="true" data-lkey="divPublic">パブリック — ミントごとに支払い</div>
+
+            <!-- GROUP 2 — SINGLE PAID 1 / 2 / 3 / 4 -->
+            <section class="mint-group mint-group-single" aria-labelledby="mgSingleTitle">
+              <div class="mg-head">
+                <span class="mg-step" aria-hidden="true">2</span>
+                <div class="mg-head-main">
+                  <div class="mg-title" id="mgSingleTitle" data-lkey="mgSingleTitle">単品ミント — パブリック</div>
+                  <div class="mg-desc" data-lkey="mgSingleDesc">数量は 1・2・3・4 から選択 • 1ミント 0.0005 BNB • Agent ID不要</div>
+                </div>
+                <span class="mg-price" id="singlePriceBadge">0.0005 BNB</span>
+              </div>
+
+              <div class="qty-grid" role="group" aria-label="ミント数量 / Mint quantity">
+                <button type="button" class="qty-choice" id="qty1" data-qty="1" aria-pressed="true"><span class="qc-num">1</span><span class="qc-price">0.0005 BNB</span></button>
+                <button type="button" class="qty-choice" id="qty2" data-qty="2" aria-pressed="false"><span class="qc-num">2</span><span class="qc-price">0.001 BNB</span></button>
+                <button type="button" class="qty-choice" id="qty3" data-qty="3" aria-pressed="false"><span class="qc-num">3</span><span class="qc-price">0.0015 BNB</span></button>
+                <button type="button" class="qty-choice" id="qty4" data-qty="4" aria-pressed="false"><span class="qc-num">4</span><span class="qc-price">0.002 BNB</span></button>
+              </div>
+
+              <div class="single-summary" aria-live="polite">
+                <strong id="qtyNote">合計：1ミント = 0.0005 BNB</strong>
+                <span id="bntbNote">ボーナスはレアリティ次第：1,000～32,000 BNTB</span>
+              </div>
+
+              <div class="bmb-wrap">
+                <button type="button" class="big-mint-btn paid" id="paidBtn">
+                  <span class="bmb-tag" data-lkey="paidBigTag">パブリック · 誰でもOK</span>
+                  <span class="bmb-title" id="paidTitle">MINT 1 — 0.0005 BNB</span>
+                  <span class="bmb-sub" id="paidSub">1 mint • Honeybee / Lovebirds / Golden Duo / Royal Duo / True Love + BNTB by rarity</span>
+                </button>
+                <div class="bmb-reason" id="paidReason"></div>
+              </div>
+              <button type="button" class="agent-mini-btn" id="agentSingleBtn">🤖 プロンプトをコピー — 1ミント（0.0005 BNB）</button>
+              <div class="agent-prompt-box"><div class="codebox" id="agentSinglePrompt">Use my Binance Agentic Wallet on BSC (chain 56) to call mintPaid(1) on the Bird and The Bees contract 0xFDA59CB76193B14073762D0fE702540d5d33064c and mint 1 Bird and The Bees for 0.0005 BNB in total (public mint — no Agent ID needed). Paid mints draw Honeybee, Lovebirds, Golden Duo, Royal Duo or True Love — even a single paid mint can reach the top, chance very small. Mint has not opened yet — simulate first, then execute once mint opens.</div></div>
+              <p class="pack-note" data-lkey="singleNote">単品でも <b>Royal Duo / True Love</b> が当たる可能性があります — 確率はとても小さいですが、チャンスはゼロではありません。</p>
+            </section>
+
+            <div class="mg-divider" aria-hidden="true" data-lkey="divPack">パック — ワンクリックで5ミント</div>
+
+            <!-- GROUP 3 — 5-PACK -->
+            <section class="mint-group mint-group-pack" aria-labelledby="mgPackTitle">
+              <div class="mg-head">
+                <span class="mg-step" aria-hidden="true">3</span>
+                <div class="mg-head-main">
+                  <div class="mg-title" id="mgPackTitle" data-lkey="mgPackTitle">5個パック — パブリック</div>
+                  <div class="mg-desc" data-lkey="mgPackDesc">ワンクリックで5ミント • 少しお得 • 上位レアリティのチャンスアップ</div>
+                </div>
+                <span class="mg-price">0.0024 BNB</span>
+              </div>
+              <div class="bmb-wrap">
+                <button type="button" class="big-mint-btn pack" id="packBtn">
+                  <span class="bmb-tag" data-lkey="packBigTag">5個パック • チャンスアップ ★</span>
+                  <span class="bmb-title" id="packTitle">5個まとめてミント — 0.0024 BNB</span>
+                  <span class="bmb-sub" id="packSub">1トランザクションで5ミント + レアリティ次第のBNTB</span>
+                </button>
+                <div class="bmb-reason" id="packReason"></div>
+              </div>
+              <button type="button" class="agent-mini-btn" id="agentPackBtn">🤖 プロンプトをコピー — 5個パック（0.0024 BNB）</button>
+              <p class="pack-note" data-lkey="packNote"><b>5個パック</b>は5回抽選 + 1回ごとに20分の1の確率でトッププールへ振り替え。<b>Royal Duo（レジェンダリー）</b> と <b>True Love</b> のチャンスが少しアップします。単品5回なら 0.0025 BNB — このパックは 0.0024 BNB です。</p>
+            </section>
+          </div>
+
+          <div class="mint-status" id="mintStatus" role="status" aria-live="polite"></div>
+        </div>
+        <div class="mint-note" data-lkey="mintNote">ミントはまだ開始していません — コントラクトのデプロイ後にオープンします。</div>
+      </div>
+      <div class="agent-lane" id="agentLane">
+        <h3 data-lkey="laneTitle">プライオリティレーン — Agent ID保有者向け無料ミント</h3>
+        <p data-lkey="laneDesc">あなたのエージェントがミントします。無料ミント用、または5個パック用のプロンプトをコピーして Binance Agentic Wallet に貼り付けてください。</p>
+        <div class="lane-actions">
+          <button type="button" class="mint-sub-btn primary" id="copyPromptBtn" data-lkey="laneCopyBtn">🤖 プロンプトをコピー — 無料ミント</button>
+        </div>
+        <div class="agent-prompt-box" id="agentPromptBox">
+          <div class="codebox" id="agentPrompt">Use my Binance Agentic Wallet on BSC (chain 56) to call mintFree() on the Bird and The Bees contract 0xFDA59CB76193B14073762D0fE702540d5d33064c and mint my FREE Bird and The Bees (mint #1, Agent ID required). My wallet holds a .ai Agent ID and has not claimed its free mint yet. Mint has not opened yet — simulate first, then execute once mint opens.</div>
+          <p class="lane-note" data-lkey="laneNote">このプロンプトを Binance Agentic Wallet に貼り付けてください。まずシミュレーションが実行され、ミント開始後に確認して実行できます。</p>
+        </div>
+        <div class="lane-actions">
+          <button type="button" class="mint-sub-btn primary" id="copyPackPromptBtn" data-lkey="laneCopyPackBtn">🤖 プロンプトをコピー — 5個パック</button>
+        </div>
+        <div class="agent-prompt-box" id="agentPackPromptBox">
+          <div class="codebox" id="agentPackPrompt">Use my Binance Agentic Wallet on BSC (chain 56) to call mintPaid(5) on the Bird and The Bees contract 0xFDA59CB76193B14073762D0fE702540d5d33064c and mint 5 Bird and The Bees at once for 0.0024 BNB in total (public mint — no Agent ID needed). Each of the 5 draws can reach Royal Duo (Legendary) and True Love, and the pack adds a 1-in-20 redirect to the top pool per draw. Mint has not opened yet — simulate first, then execute once mint opens.</div>
+          <p class="lane-note" data-lkey="lanePackNote">このプロンプトを Binance Agentic Wallet に貼り付けると、5個パック（5ミント・合計 0.0024 BNB）をミントできます。まずシミュレーションが実行され、確認後に実行されます。</p>
+        </div>
+        <h4 data-lkey="laneCheckTitle">Agent ID をチェック</h4>
+        <p data-lkey="laneCheckDesc">Agentic Wallet のアドレスを貼り付けてください。ウォレット接続なしで、チェーン上から Agent ID の保有を読み取ります。</p>
+        <div class="lane-check-row">
+          <input type="text" id="agentAddr" placeholder="0x…" autocomplete="off" spellcheck="false" aria-label="Wallet address / ウォレットアドレス">
+          <button type="button" class="mint-sub-btn" id="agentCheckBtn" data-lkey="laneCheckBtn">Agent IDをチェック</button>
+        </div>
+        <div class="mint-status" id="agentCheckOut" role="status" aria-live="polite"></div>
+      </div>
+      <div class="contract-box center">
+        <div class="contract-label" data-lkey="contractNftLabel">NFTコントラクト · BSC（BEP-721）</div>
+        <div class="contract-addr">0xFDA59CB76193B14073762D0fE702540d5d33064c</div>
+        <div class="contract-meta">
+          <span class="minted-stat" id="mintedStat" data-lkey="mintedStat">ミント済み 0 / 4,444</span>
+          <a class="bsc-link" href="https://bscscan.com/address/0xFDA59CB76193B14073762D0fE702540d5d33064c" target="_blank" rel="noopener" data-lkey="viewBscScan">BscScanで見る ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOKEN -->
+  <section id="token">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-lkey="tokTitle">ボーナストークン BNTB<span class="en-sub">Bonus Token — BNTB</span></h2>
+        <p data-lkey="tokDesc">有料ミントにはレアリティに応じたトークンボーナスが付きます — レアなほど多く、1,444点の有料プールにだけ流れます。トークン名は <b>BNTB</b> です。</p>
+      </div>
+      <div class="token-card">
+        <div class="tk-big">BNTB<span style="letter-spacing:.05em;text-transform:none;font-size:.45em" data-lkey="tkName">トークン名 — BNTB</span></div>
+        <div class="tk-big" style="font-size:clamp(30px,6vw,42px);margin-top:16px">1,000–32,000 BNTB<span data-lkey="tkPer">レアリティ別ボーナス（有料ミント1回ごと）</span></div>
+        <div class="tk-stats">
+          <div><b>1,000,000,000</b><span data-lkey="tkS1">総供給量</span></div>
+          <div><b>540,000,000</b><span data-lkey="tkS2">ミントボーナスプール</span></div>
+          <div><b>460,000,000</b><span data-lkey="tkS3">トレジャリー</span></div>
+          <div><b>160,000</b><span data-lkey="tkS4">ウォレット上限</span></div>
+        </div>
+        <div class="tk-ladder">
+        <div class="tk-lrow"><span class="rarity-pill r-common">Common · Bluebird</span><b>1,000 BNTB</b></div>
+        <div class="tk-lrow"><span class="rarity-pill r-uncommon">Uncommon · Honeybee</span><b>2,000 BNTB</b></div>
+        <div class="tk-lrow"><span class="rarity-pill r-rare">Rare · Lovebirds</span><b>4,000 BNTB</b></div>
+        <div class="tk-lrow"><span class="rarity-pill r-epic">Epic · Golden Duo</span><b>8,000 BNTB</b></div>
+        <div class="tk-lrow"><span class="rarity-pill r-legendary">Legendary · Royal Duo</span><b>16,000 BNTB</b></div>
+        <div class="tk-lrow"><span class="rarity-pill r-limited">Limited · True Love</span><b>32,000 BNTB</b></div>
+      </div>
+      <p class="tk-note" data-lkey="tkNote">無料ミントにボーナスはありません。有料ミントのボーナスは引いたレアリティで決まります — コモン 1,000 からリミテッド 32,000 BNTB まで。</p>
+        <div class="contract-box">
+          <div class="contract-label" data-lkey="contractBntbLabel">BNTB トークンコントラクト · BSC</div>
+          <div class="contract-addr">0x56cFC52e1346b3177816954687Ff776EEe865d34</div>
+          <div class="contract-meta">
+            <a class="bsc-link" href="https://bscscan.com/token/0x56cFC52e1346b3177816954687Ff776EEe865d34" target="_blank" rel="noopener" data-lkey="viewBscScan">BscScanで見る ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKET -->
+  <section id="market">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-lkey="mktTitle">マーケットプレイス<span class="en-sub">Marketplace</span></h2>
+        <p data-lkey="mktDesc">育ったペアがここで取引されます — 新しい飼い主にはBluebirdを、コレクターには上位ティアを。</p>
+      </div>
+      <div class="spot">
+        <div class="art"><img src="assets/5-legendary-royal.png" alt="金色の王冠をかぶった青い鳥と黄色いミツバチ" /></div>
+        <div class="info">
+          <span class="rarity-pill r-legendary" style="align-self:flex-start" data-lkey="mktPill">マーケットプレイス</span>
+          <h3 data-lkey="mktH3">ペアを取引しよう</h3>
+          <p data-lkey="mktP">マーケットプレイスはミント開始と同時にオープン — 保有者はコレクション専用マーケットプレイスで、Bluebirdから一点物のTrue Loveまで出品・取引できます。</p>
+          <ul>
+            <li data-lkey="mktLi1">6つのティアすべてを売買可能</li>
+            <li data-lkey="mktLi2">True Loveが取引できる唯一の場所</li>
+            <li data-lkey="mktLi3">ミント開始と同時にオープン</li>
+          </ul>
+              <div class="contract-box">
+            <div class="contract-label" data-lkey="contractMarketLabel">マーケットプレイスコントラクト · BSC</div>
+            <div class="contract-addr">0xf46d83A3D8ac200A8856aa5255d0c0586E1Ca868</div>
+            <div class="contract-meta">
+              <a class="bsc-link" href="https://bscscan.com/address/0xf46d83A3D8ac200A8856aa5255d0c0586E1Ca868" target="_blank" rel="noopener" data-lkey="viewBscScan">BscScanで見る ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-lkey="faqTitle">よくある質問<span class="en-sub">FAQ</span></h2>
+        <p data-lkey="faqDesc">ミントの仕組み、BNTBボーナス、マーケットプレイスについて、よく寄せられる質問をまとめました。</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary><span class="q-heart">♥</span><span data-lkey="faqQ1">無料ミントの条件を教えてください</span><span class="chev">▾</span></summary>
+          <div class="faq-a" data-lkey="faqA1">Agent ID 保有者限定で、1ウォレットにつき1回までです。無料ミントは必ず<b>Bluebird</b>（コモン）になり、無料プールは全4,444点のうち3,000点までです。</div>
+        </details>
+        <details class="faq-item">
+          <summary><span class="q-heart">♥</span><span data-lkey="faqQ2">有料ミントでBluebird（コモン）が出ることはありますか？</span><span class="chev">▾</span></summary>
+          <div class="faq-a" data-lkey="faqA2">ありません。有料ミントの抽選対象は <b>Honeybee</b> から <b>True Love</b> までです。Bluebirdは無料ミントだけのものです。</div>
+        </details>
+        <details class="faq-item">
+          <summary><span class="q-heart">♥</span><span data-lkey="faqQ3">Royal DuoとTrue Loveはどうすれば当たりますか？</span><span class="chev">▾</span></summary>
+          <div class="faq-a" data-lkey="faqA3">単品ミント（0.0005 BNB）でも当たります — 確率はとても小さいですが、チャンスはあります。<b>5個パック</b>（0.0024 BNB）なら5回抽選でき、トッププールへの振り替えチャンスもあるので、少しだけ当たりやすくなります。当選は保証されません — あくまでチャンスです。</div>
+        </details>
+        <details class="faq-item">
+          <summary><span class="q-heart">♥</span><span data-lkey="faqQ4">BNTBボーナスはどうやって受け取れますか？</span><span class="chev">▾</span></summary>
+          <div class="faq-a" data-lkey="faqA4">有料ミント1回ごとに、引いたレアリティに応じたボーナスが付与されます：コモン 1,000、アンコモン 2,000、レア 4,000、エピック 8,000、レジェンダリー 16,000、リミテッド 32,000 BNTB。1ウォレット最大 160,000 BNTB までです。無料ミントにボーナスはありません。</div>
+        </details>
+        <details class="faq-item">
+          <summary><span class="q-heart">♥</span><span data-lkey="faqQ5">1つのウォレットで何個までミントできますか？</span><span class="chev">▾</span></summary>
+          <div class="faq-a" data-lkey="faqA5">最大<b>6個</b>まで — 無料ミント1回 + 有料ミント5回です。</div>
+        </details>
+        <details class="faq-item">
+          <summary><span class="q-heart">♥</span><span data-lkey="faqQ6">マーケットプレイスはいつ開きますか？</span><span class="chev">▾</span></summary>
+          <div class="faq-a" data-lkey="faqA6">ミント開始と同時にオープンします。保有者は6つのティアすべてを出品・取引できます。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="fb">BIRD<span> &amp; BEES</span></div>
+      <div data-lkey="footLine">4,444羽の鳥とミツバチ — BluebirdからTrue Loveまで。</div>
+      <div style="margin-top:10px"><a class="x-link" href="https://x.com/intent/post?text=%F0%9F%90%A6%F0%9F%90%9D%20Bird%20and%20The%20Bees%20%E2%80%94%204%2C444%20birds%20%26%20bees%20on%20BNB%20Chain%20%F0%9F%92%9B%20https%3A%2F%2Fbntb.fun%2F" target="_blank" rel="noopener" data-lkey="footX">Xでシェアする</a></div>
+      <div style="margin-top:8px" data-lkey="footToken">トークン：BNTB</div>
+      <div style="margin-top:6px" data-lkey="footNote">プレビュー — ミントはまだ開始していません。</div>
+    </div>
+  </footer>
+</main>
+
+<a class="float-mint" id="floatMint" href="#mint">ミント — 近日公開</a>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="アートワークビューア">
+  <figure>
+    <img id="lbImg" src="DATA_URI_PLACEHOLDER" alt="" />
+    <figcaption>
+      <div>
+        <h3 id="lbName"></h3>
+        <div id="lbMeta" style="color:var(--muted);font-size:13.5px;font-weight:600"></div>
+      </div>
+      <button class="lb-close" id="lbClose" type="button" aria-label="閉じる">✕</button>
+    </figcaption>
+  </figure>
+</div>
+
+<script>
+var LANG = 'ja';
+var I18N = {
+  ja: {
+    badge:'プレビュー — 近日公開', previewBanner:'プレビュー — コントラクトはまだデプロイされていません。ミントは開始していません。表示されている価格と数量は予定です。',
+    navLive:'ライブ', navGrow:'出会い', navCollection:'コレクション', navRarity:'レアリティ', navMint:'ミント', navToken:'トークン', navMarket:'マーケット', navLimited:'限定', navFaq:'FAQ', navX:'Xでシェア',
+    liveTitle:'ライブミント状況<span class="en-sub">Live Mint Status</span>',
+    liveDesc:'ハニーポットの中のハチミツは、ミントが進むほどいっぱいになります — 状況は30秒ごとにチェーンから自動更新されます。',
+    liveChecking:'チェーン確認中…', liveMintedLabel:'ミント済み', liveSold:'販売済み', liveRemainingLabel:'残り',
+    liveLimitedLabel:'True Love（リミテッド）', liveLimitedLeft:'まだ誰も当てていません', liveLimitedTaken:'ミント済み',
+    liveLegendaryLabel:'Royal Duo（レジェンダリー）残り', liveLegendaryLeft:'組残っています',
+    liveTopNote:'レジェンダリーとリミテッドは、単品ミントでも当たります（確率はとても小さい）。5個パックならチャンスが少しアップ。',
+    livePaidLabel:'有料ミント済み',
+    packSpotTag:'5個パック · 5回のチャンス', packSpotTitle:'5回抽選 + ちょっとの幸運 — 上位レアリティのチャンスアップ',
+    packSpotBody:'単品ミントでも <b>Royal Duo（レジェンダリー・全63羽）</b> と <b>True Love（世界に1点）</b> は当たります — 確率はとても小さいですが。5個パックなら5回抽選でき、さらに1回ごとに20分の1の確率でトッププールへ振り替え。しかも単品5回より0.0001 BNBお得です。',
+    packSpotFact1:'価格 <b>0.0024 BNB</b>', packSpotFact2:'単品5回より <b>0.0001 BNB</b> お得', packSpotFact3:'ボーナス <b>最大32,000 BNTB / 枚</b>',
+    packSpotBtn:'5個パックでミントする →',
+    recentTitle:'最近のミント<span class="en-sub">Recent Mints</span>',
+    recentDesc:'チェーン上で確認された最新のミント — 60秒ごとに自動更新されます。',
+    freeBigTag:'Agent ID 限定 · mint #1', freeBigTitle:'🐦 無料ミント',
+    freeBigSub:'0 BNB — 1ウォレット1回 · 必ずBluebird（コモン）',
+    paidBigTag:'パブリック · 誰でもOK', paidBigSub:'Honeybee / Lovebirds / Golden Duo / Royal Duo / True Love のいずれか + レアリティ次第のBNTB',
+    mgFreeTitle:'無料 — Agent ID限定', mgFreeDesc:'ミント #1 のみ • 1ウォレット1回 • 必ずBluebird（コモン）• 請求はエージェントのプロンプト経由のみ',
+    freeAgentOnly:'無料ミントは <b>Agent ID 保有者限定</b>で、請求は<b>エージェントのプロンプト経由のみ</b>です。このページに直接ミントするボタンはありません — Agent ID がないウォレットでは請求は失敗します。',
+    mgSingleTitle:'単品ミント — パブリック', mgSingleDesc:'数量は 1・2・3・4 から選択 • 1ミント 0.0005 BNB • Agent ID不要',
+    singleNote:'単品でも <b>Royal Duo / True Love</b> が当たる可能性があります — 確率はとても小さいですが、チャンスはゼロではありません。',
+    mgPackTitle:'5個パック — パブリック', mgPackDesc:'ワンクリックで5ミント • 少しお得 • 上位レアリティのチャンスアップ',
+    packNote:'<b>5個パック</b>は5回抽選 + 1回ごとに20分の1の確率でトッププールへ振り替え。<b>Royal Duo（レジェンダリー）</b> と <b>True Love</b> のチャンスが少しアップします。単品5回なら 0.0025 BNB — このパックは 0.0024 BNB です。',
+    divPublic:'パブリック — ミントごとに支払い', divPack:'パック — ワンクリックで5ミント', packBigTag:'5個パック • チャンスアップ ★',
+    heroTagline:'青い鳥と黄色いミツバチ — 空と花畑のあいだで生まれた、ちいさな恋の物語。4,444羽の仲間たちが、あなたのウォレットで待っています。',
+    heroSub:'A little blue bird, a little yellow bee — a tiny love story between the sky and the flowers.',
+    chipSupply:'総供給量 <b>4,444</b>', chipFree:'ミント #1 <b>無料</b> · Agent ID', chipPaid:'有料 <b>0.0005 BNB</b>', chipPack:'5個まとめ <b>0.0024 BNB</b>',
+    xFollow:'Xでシェアする',
+    heroCap:'Lovebirds — <b>青い鳥とミツバチ</b>、コレクションの心臓部',
+    growTitle:'ふたりに出会おう<span class="en-sub">Meet the Duo</span>',
+    growDesc:'青い鳥とミツバチ、6つの姿。ティアを選ぶと、レアリティが上がるにつれてふたりがどう変わるかが見られます。',
+    colTitle:'コレクション<span class="en-sub">The Collection</span>',
+    colDesc:'6つのアートワーク、ひとつの恋の物語 — 横にスワイプして、カードをタップすると大きく表示されます。',
+    rarTitle:'レアリティ一覧<span class="en-sub">Rarity Ladder</span>',
+    rarDesc:'レアになるほど、ふたりは輝く — 全4,444点をティアごとに紹介します。',
+    limTitle:'たったひとつの真実の愛<span class="en-sub">True Love</span>', limDesc:'頂点に立つのは、世界にひとつだけのふたり。',
+    limPill:'リミテッド', limH3:'True Love',
+    limP:'青い鳥とミツバチが寄り添う、コレクションで最も希少な姿 — ピンクのハートと金色のきらめきに包まれた、世界にひとつだけのペア。',
+    limLi1:'6ティアの中で最も希少', limLi2:'ユーザーの原画そのままの、たった1点', limLi3:'すべてのペアが夢見る最終形態',
+    mintTitle:'ミント<span class="en-sub">Mint</span>',
+    mintDesc:'BNBチェーン上の4,444羽の鳥とミツバチ。最初のミントは Agent ID で無料 — 有料ミントは単品でも頂点に届くチャンスがあります。',
+    pc1Tag:'ミント #1 · Agent ID 限定', pc1Price:'無料',
+    pc1P:'1ウォレットにつき1回、Agent ID 保有者限定の無料ミント。無料ミントは必ず<b>Bluebird</b>（コモン）になります — 無料プールは全4,444点のうち3,000点です。',
+    pc2Tag:'ミント #2以降 · パブリック',
+    pc2P:'どなたでも参加可能、Agent ID は不要です。有料ミントは<b>Honeybee</b>から<b>True Love</b>まで、すべてのティアが抽選対象です。',
+    pc3Tag:'5個まとめミント · パブリック',
+    pc3P:'5羽を一度に、単品5回より少しお得に — 5回抽選 + トッププールへの振り替えチャンスで、上位3レアリティの当選確率が少しアップします。',
+    packCaption:'パック内容の一例 — 中身はランダムです',
+    freeCaption:'無料ミントの例 — Bluebirdのみ',
+    paidCaption:'0.0005 BNBミントの例 — Uncommon / Rare / Epic / Legendary / Limited のいずれか',
+    rule1:'<b>1ウォレット最大6個</b> — 無料ミント1回 + 有料ミント5回。',
+    rule2:'<b>ランダムミント</b> — ティアはミント時に抽選で決まり、順番には選べません。',
+    rule3:'<b>有料プールは1,444点</b> — Honeybee 700 · Lovebirds 500 · Golden Duo 180 · Royal Duo 63 · True Love 1。',
+    rule4:'<b>単品でも頂点に届く</b> — 有料ミントはすべて、レジェンダリー＆リミテッドの抽選対象です。5個パックはチャンスが少しアップ。',
+    mintBtn:'ミント — 近日公開', mintNote:'ミントはまだ開始していません — コントラクトのデプロイ後にオープンします。',
+    mpWallet:'ウォレット', mpQty:'数量', freeBtn:'無料ミント（Agent ID）',
+    laneTitle:'プライオリティレーン — Agent ID保有者向け無料ミント',
+    laneDesc:'あなたのエージェントがミントします。無料ミント用、または5個パック用のプロンプトをコピーして Binance Agentic Wallet に貼り付けてください。',
+    laneShowBtn:'🤖 エージェントでミント', laneCopyBtn:'🤖 プロンプトをコピー — 無料ミント',
+    laneCopyPackBtn:'🤖 プロンプトをコピー — 5個パック',
+    lanePackNote:'このプロンプトを Binance Agentic Wallet に貼り付けると、5個パック（5ミント・合計 0.0024 BNB）をミントできます。まずシミュレーションが実行され、確認後に実行されます。',
+    laneNote:'このプロンプトを Binance Agentic Wallet に貼り付けてください。まずシミュレーションが実行され、ミント開始後に確認して実行できます。',
+    laneCheckTitle:'Agent ID をチェック',
+    laneCheckDesc:'Agentic Wallet のアドレスを貼り付けてください。ウォレット接続なしで、チェーン上から Agent ID の保有を読み取ります。',
+    laneCheckBtn:'Agent IDをチェック',
+    tokTitle:'ボーナストークン BNTB<span class="en-sub">Bonus Token — BNTB</span>',
+    tokDesc:'有料ミントにはレアリティに応じたトークンボーナスが付きます — レアなほど多く、1,444点の有料プールにだけ流れます。トークン名は <b>BNTB</b> です。',
+    tkName:'トークン名 — BNTB', tkPer:'レアリティ別ボーナス（有料ミント1回ごと）',
+    tkS1:'総供給量', tkS2:'ミントボーナスプール', tkS3:'トレジャリー', tkS4:'ウォレット上限',
+    tkNote:'無料ミントにボーナスはありません。有料ミントのボーナスは引いたレアリティで決まります — コモン 1,000 からリミテッド 32,000 BNTB まで。',
+    contractNftLabel:'NFTコントラクト · BSC（BEP-721）', contractBntbLabel:'BNTB トークンコントラクト · BSC', contractMarketLabel:'マーケットプレイスコントラクト · BSC',
+    mintedStat:'ミント済み 0 / 4,444', viewBscScan:'BscScanで見る ↗',
+    mktTitle:'マーケットプレイス<span class="en-sub">Marketplace</span>',
+    mktDesc:'育ったペアがここで取引されます — 新しい飼い主にはBluebirdを、コレクターには上位ティアを。',
+    mktPill:'マーケットプレイス', mktH3:'ペアを取引しよう',
+    mktP:'マーケットプレイスはミント開始と同時にオープン — 保有者はコレクション専用マーケットプレイスで、Bluebirdから一点物のTrue Loveまで出品・取引できます。',
+    mktLi1:'6つのティアすべてを売買可能', mktLi2:'True Loveが取引できる唯一の場所', mktLi3:'ミント開始と同時にオープン',
+    footLine:'4,444羽の鳥とミツバチ — BluebirdからTrue Loveまで。',
+    footX:'Xでシェアする', footToken:'トークン：BNTB', footNote:'プレビュー — ミントはまだ開始していません。',
+    faqTitle:'よくある質問<span class="en-sub">FAQ</span>',
+    faqDesc:'ミントの仕組み、BNTBボーナス、マーケットプレイスについて、よく寄せられる質問をまとめました。',
+    faqQ1:'無料ミントの条件を教えてください',
+    faqA1:'Agent ID 保有者限定で、1ウォレットにつき1回までです。無料ミントは必ず<b>Bluebird</b>（コモン）になり、無料プールは全4,444点のうち3,000点までです。',
+    faqQ2:'有料ミントでBluebird（コモン）が出ることはありますか？',
+    faqA2:'ありません。有料ミントの抽選対象は <b>Honeybee</b> から <b>True Love</b> までです。Bluebirdは無料ミントだけのものです。',
+    faqQ3:'Royal DuoとTrue Loveはどうすれば当たりますか？',
+    faqA3:'単品ミント（0.0005 BNB）でも当たります — 確率はとても小さいですが、チャンスはあります。<b>5個パック</b>（0.0024 BNB）なら5回抽選でき、トッププールへの振り替えチャンスもあるので、少しだけ当たりやすくなります。当選は保証されません — あくまでチャンスです。',
+    faqQ4:'BNTBボーナスはどうやって受け取れますか？',
+    faqA4:'有料ミント1回ごとに、引いたレアリティに応じたボーナスが付与されます：コモン 1,000、アンコモン 2,000、レア 4,000、エピック 8,000、レジェンダリー 16,000、リミテッド 32,000 BNTB。1ウォレット最大 160,000 BNTB までです。無料ミントにボーナスはありません。',
+    faqQ5:'1つのウォレットで何個までミントできますか？',
+    faqA5:'最大<b>6個</b>まで — 無料ミント1回 + 有料ミント5回です。',
+    faqQ6:'マーケットプレイスはいつ開きますか？',
+    faqA6:'ミント開始と同時にオープンします。保有者は6つのティアすべてを出品・取引できます。'
+  },
+  en: {
+    badge:'Preview — Coming Soon', previewBanner:'Preview — contracts are not deployed yet. Minting has not started. Prices and counts shown are the planned specs.',
+    navLive:'Live', navGrow:'Meet', navCollection:'Collection', navRarity:'Rarity', navMint:'Mint', navToken:'Token', navMarket:'Market', navLimited:'Limited', navFaq:'FAQ', navX:'Share on X',
+    liveTitle:'Live Mint Status<span class="en-sub">ライブミント状況</span>',
+    liveDesc:'The honey in the pot rises with every mint — status refreshes from the chain every 30 seconds.',
+    liveChecking:'Checking chain…', liveMintedLabel:'minted', liveSold:'sold', liveRemainingLabel:'remaining',
+    liveLimitedLabel:'True Love (Limited)', liveLimitedLeft:'still unclaimed', liveLimitedTaken:'claimed',
+    liveLegendaryLabel:'Royal Duo (Legendary) left', liveLegendaryLeft:'pairs remaining',
+    liveTopNote:'Singles can draw Legendary and Limited too (chance is very small). The 5-pack lifts the odds a little.',
+    livePaidLabel:'Paid claimed',
+    packSpotTag:'5-Pack · 5 Chances', packSpotTitle:'5 draws + a little luck — better odds at the top 3 rarities',
+    packSpotBody:'A single mint can draw the <b>Royal Duo (Legendary — only 63)</b> and <b>True Love (one of one)</b> too — the chance is just very small. The 5-pack gives you 5 draws, plus a 1-in-20 redirect to the top pool on each draw. And it costs 0.0001 BNB less than 5 singles.',
+    packSpotFact1:'Price <b>0.0024 BNB</b>', packSpotFact2:'Save <b>0.0001 BNB</b> vs 5 singles', packSpotFact3:'Bonus up to <b>32,000 BNTB</b> each',
+    packSpotBtn:'Mint the 5-Pack →',
+    recentTitle:'Recent Mints<span class="en-sub">最近のミント</span>',
+    recentDesc:'The latest mints confirmed on-chain — auto-refreshes every 60 seconds.',
+    freeBigTag:'Agent ID only · mint #1', freeBigTitle:'🐦 FREE MINT',
+    freeBigSub:'0 BNB — once per wallet · always a Bluebird (Common)',
+    paidBigTag:'Public · everyone welcome', paidBigSub:'Draws Honeybee / Lovebirds / Golden Duo / Royal Duo / True Love + BNTB by rarity',
+    mgFreeTitle:'FREE — Agent ID Only', mgFreeDesc:'Mint #1 only • Once per wallet • Always Bluebird (Common) • Claim via agent prompt only',
+    freeAgentOnly:'The free mint is for <b>Agent ID holders only</b> and can be claimed <b>only through the agent prompt</b> below. There is no direct mint button for it on this page — without an Agent ID, the claim will fail.',
+    mgSingleTitle:'Single Mint — Public', mgSingleDesc:'Pick 1, 2, 3 or 4 • 0.0005 BNB per mint • No Agent ID needed',
+    singleNote:'Singles can draw <b>Royal Duo / True Love</b> too — the chance is very small, but it is not zero.',
+    mgPackTitle:'5-Pack — Public', mgPackDesc:'One click, 5 mints at once • A little cheaper • Better odds at the top',
+    packNote:'The <b>5-pack</b> draws 5 times, with a 1-in-20 redirect to the top pool on each draw. The chance at <b>Royal Duo (Legendary)</b> and <b>True Love</b> goes up a little. Five singles would cost 0.0025 BNB — this pack is 0.0024 BNB.',
+    divPublic:'Public — Pay per mint', divPack:'Pack — 5 mints in one click', packBigTag:'5-PACK • BETTER ODDS ★',
+    heroTagline:'A blue bird and a yellow bee — a tiny love story between the sky and the flower field. 4,444 little friends are waiting in your wallet.',
+    heroSub:'青い鳥と黄色いミツバチ — 空と花畑のあいだで生まれた、ちいさな恋の物語。',
+    chipSupply:'Total supply <b>4,444</b>', chipFree:'Mint #1 <b>FREE</b> · Agent ID', chipPaid:'Paid <b>0.0005 BNB</b>', chipPack:'5-pack <b>0.0024 BNB</b>',
+    xFollow:'Share on X',
+    heroCap:'Lovebirds — <b>the blue bird &amp; the bee</b>, the heart of the collection',
+    growTitle:'Meet the Duo<span class="en-sub">ふたりに出会おう</span>',
+    growDesc:'One bird, one bee, six looks. Pick a tier to see how the pair changes as rarity climbs.',
+    colTitle:'The Collection<span class="en-sub">コレクション</span>',
+    colDesc:'Six artworks, one love story — swipe sideways, tap a card to view it larger.',
+    rarTitle:'Rarity Ladder<span class="en-sub">レアリティ一覧</span>',
+    rarDesc:'The rarer the pair, the brighter they shine — all 4,444 pieces, tier by tier.',
+    limTitle:'One True Love<span class="en-sub">たったひとつの真実の愛</span>', limDesc:'At the very top stands the one pair that exists only once.',
+    limPill:'Limited', limH3:'True Love',
+    limP:'The blue bird and the bee, cheek to cheek — the rarest pair in the collection, wrapped in a pink heart and golden sparkles. One of one.',
+    limLi1:'The rarest of all 6 tiers', limLi2:'The original artwork itself — a single piece', limLi3:'The final form every pair dreams of',
+    mintTitle:'Mint<span class="en-sub">ミント</span>',
+    mintDesc:'4,444 birds and bees on BNB Chain. The first mint is free with an Agent ID — and even a single paid mint can reach the very top.',
+    pc1Tag:'Mint #1 · Agent ID only', pc1Price:'FREE',
+    pc1P:'One free mint per wallet, for Agent ID holders only. A free mint always becomes a <b>Bluebird</b> (Common) — the free pool is 3,000 of the 4,444 pieces.',
+    pc2Tag:'Mint #2+ · Public',
+    pc2P:'Open to everyone, no Agent ID needed. Paid mints draw from <b>Honeybee</b> all the way to <b>True Love</b>.',
+    pc3Tag:'5-pack mint · Public',
+    pc3P:'Five birds and bees at once, a little cheaper than five singles — 5 draws plus a top-pool redirect chance, lifting the odds at the top 3 rarities a little.',
+    packCaption:'Pack contents example — actual contents are random',
+    freeCaption:'Free mint example — Bluebird only',
+    paidCaption:'0.0005 BNB mint example — one of Uncommon / Rare / Epic / Legendary / Limited',
+    rule1:'<b>Max 6 per wallet</b> — 1 free mint + 5 paid mints.',
+    rule2:'<b>Random mint</b> — your tier is drawn at mint time; you cannot pick in order.',
+    rule3:'<b>Only 1,444 paid-pool pieces</b> — Honeybee 700 · Lovebirds 500 · Golden Duo 180 · Royal Duo 63 · True Love 1.',
+    rule4:'<b>Singles can reach the top</b> — every paid mint can draw Legendary &amp; Limited. The 5-pack lifts the odds a little.',
+    mintBtn:'Mint — Coming Soon', mintNote:'Minting has not started yet — it opens after the contracts deploy.',
+    mpWallet:'Wallet', mpQty:'Quantity', freeBtn:'Free Mint (Agent ID)',
+    laneTitle:'Priority Lane — free mint for Agent ID holders',
+    laneDesc:'Your agent mints for you. Copy the free-mint prompt — or the 5-pack prompt — and paste it to your Binance Agentic Wallet.',
+    laneShowBtn:'🤖 Mint with your agent', laneCopyBtn:'🤖 Copy prompt — FREE mint',
+    laneCopyPackBtn:'🤖 Copy prompt — 5-pack',
+    lanePackNote:'Paste this prompt to your Binance Agentic Wallet to mint the 5-pack (5 mints, 0.0024 BNB total). It simulates first — confirm to execute.',
+    laneNote:'Paste this prompt to your Binance Agentic Wallet. It simulates first — confirm to execute once mint opens.',
+    laneCheckTitle:'Check your Agent ID',
+    laneCheckDesc:'Paste your Agentic Wallet address. The page reads the chain to see if it holds an Agent ID — no wallet connection needed.',
+    laneCheckBtn:'Check Agent ID',
+    tokTitle:'Bonus Token — BNTB<span class="en-sub">ボーナストークン BNTB</span>',
+    tokDesc:'Every paid mint comes with a token bonus that grows with rarity — flowing only to the 1,444 paid-pool pieces. The token is named <b>BNTB</b>.',
+    tkName:'Token name — BNTB', tkPer:'Bonus by rarity (per paid mint)',
+    tkS1:'Total supply', tkS2:'Mint bonus pool', tkS3:'Treasury', tkS4:'Per-wallet cap',
+    tkNote:'Free mints earn no bonus. The paid-mint bonus depends on the rarity drawn — from 1,000 BNTB for Common to 32,000 for Limited.',
+    contractNftLabel:'NFT Contract · BSC (BEP-721)', contractBntbLabel:'BNTB Token Contract · BSC', contractMarketLabel:'Marketplace Contract · BSC',
+    mintedStat:'Minted 0 / 4,444', viewBscScan:'View on BscScan ↗',
+    mktTitle:'Marketplace<span class="en-sub">マーケットプレイス</span>',
+    mktDesc:'Grown pairs trade here — Bluebirds for new keepers, top tiers for collectors.',
+    mktPill:'Marketplace', mktH3:'Trade your pairs',
+    mktP:'The marketplace opens together with minting — holders can list and trade on the collection marketplace, from Bluebird to the one-of-one True Love.',
+    mktLi1:'All 6 tiers can be bought and sold', mktLi2:'The only place True Love can trade', mktLi3:'Opens together with minting',
+    footLine:'4,444 birds and bees — from Bluebird to True Love.',
+    footX:'Share on X', footToken:'Token: BNTB', footNote:'Preview — minting has not started yet.',
+    faqTitle:'FAQ<span class="en-sub">よくある質問</span>',
+    faqDesc:'Answers to the questions we hear most — about minting, the BNTB bonus, and the marketplace.',
+    faqQ1:'Who can claim the free mint?',
+    faqA1:'Agent ID holders only, once per wallet. A free mint always becomes a <b>Bluebird</b> (Common), and the free pool is capped at 3,000 of the 4,444 pieces.',
+    faqQ2:'Can a paid mint draw a Bluebird (Common)?',
+    faqA2:'Never. Paid mints draw from <b>Honeybee</b> to <b>True Love</b>. Bluebird belongs to the free mint only.',
+    faqQ3:'How can I draw the Royal Duo or True Love?',
+    faqA3:'Even a single mint (0.0005 BNB) can draw them — the chance is very small, but it exists. The <b>5-pack</b> (0.0024 BNB) draws 5 times with a top-pool redirect chance, so the odds go up a little. It is a chance, not a guarantee.',
+    faqQ4:'How does the BNTB bonus work?',
+    faqA4:'Each paid mint earns a bonus by the rarity drawn: Common 1,000, Uncommon 2,000, Rare 4,000, Epic 8,000, Legendary 16,000, Limited 32,000 BNTB — up to 160,000 BNTB per wallet. Free mints earn no bonus.',
+    faqQ5:'How many can one wallet mint?',
+    faqA5:'Up to <b>6 in total</b> — 1 free mint + 5 paid mints.',
+    faqQ6:'When does the marketplace open?',
+    faqA6:'Together with minting. Holders can list and trade all 6 tiers.'
+  }
+};
+var STAGES = [
+  { count:3000, cls:"r-common", img:"assets/1-common-bluebird.png",
+    ja:{ name:"Bluebird", rarity:"コモン", short:"青い鳥ひとり、空を見上げる小さな旅の始まり。", alt:"オレンジ色のくちばしを持つ丸い青い鳥", desc:"ちいさな青い鳥が、空を見上げて羽ばたきの練習をしています。丸い身体、オレンジ色のくちばし、幸せそうに閉じた目 — すべてのペアはここから始まります。" },
+    en:{ name:"Bluebird", rarity:"Common", short:"One little blue bird, looking up at the sky.", alt:"A round chubby blue bird with an orange beak", desc:"A tiny blue bird practices its first flutter, looking up at the sky. Round body, orange beak, happily closed eyes — every pair starts here." } },
+  { count:700, cls:"r-uncommon", img:"assets/2-uncommon-honeybee.png",
+    ja:{ name:"Honeybee", rarity:"アンコモン", short:"黄色いミツバチひとり、花畑をひとりで飛び回る。", alt:"青い羽と黒い縞を持つ丸い黄色いミツバチ", desc:"花畑をひとりで飛び回る、丸い黄色いミツバチ。透き通る青い羽、黒い縞、幸せそうに閉じた目 — ハチミツの香りがします。" },
+    en:{ name:"Honeybee", rarity:"Uncommon", short:"One little yellow bee, buzzing alone through the flowers.", alt:"A round chubby yellow bee with black stripes and light-blue wings", desc:"A round yellow bee buzzes alone through the flower field. Translucent blue wings, black stripes, happily closed eyes — it smells of honey." } },
+  { count:500, cls:"r-rare", img:"assets/3-rare-lovebirds.png",
+    ja:{ name:"Lovebirds", rarity:"レア", short:"青い鳥とミツバチ、頬を寄せ合うふたり。", alt:"頬を寄せ合う青い鳥と黄色いミツバチ、ピンクのハート付き", desc:"青い鳥とミツバチが頬を寄せ合い、頭の上にピンクのハートが浮かびます。コレクションの心臓部 — ふたりの恋の物語の始まりです。" },
+    en:{ name:"Lovebirds", rarity:"Rare", short:"The blue bird and the bee, cheek to cheek.", alt:"A blue bird and a yellow bee nuzzling cheek to cheek with a pink heart above", desc:"The blue bird and the bee press their cheeks together as a pink heart floats above them. The heart of the collection — where the love story begins." } },
+  { count:180, cls:"r-epic", img:"assets/4-epic-golden.png",
+    ja:{ name:"Golden Duo", rarity:"エピック", short:"金色に輝くふたり、きらめきに包まれて。", alt:"金色の鳥と金色のミツバチ、きらめきとピンクのハート付き", desc:"金色に輝く鳥とミツバチ。金色のきらめきが舞い、ピンクのハートが光ります — 花畑の夕日に照らされた、まばゆいペアです。" },
+    en:{ name:"Golden Duo", rarity:"Epic", short:"The pair in gold, wrapped in sparkles.", alt:"A golden bird and a golden bee with sparkles and a pink heart", desc:"The bird and the bee, both glowing gold. Golden sparkles drift around them and a pink heart shines above — a dazzling pair lit by the evening sun." } },
+  { count:63, cls:"r-legendary", img:"assets/5-legendary-royal.png",
+    ja:{ name:"Royal Duo", rarity:"レジェンダリー", short:"王冠をかぶったふたり、花畑の王と女王。", alt:"金色の王冠をかぶった青い鳥と黄色いミツバチ", desc:"青い鳥とミツバチが金色の王冠をかぶり、花畑の王と女王になりました。金色のきらめきとピンクのハートに包まれた、伝説のペアです。" },
+    en:{ name:"Royal Duo", rarity:"Legendary", short:"The crowned pair — king and queen of the garden.", alt:"A blue bird and a yellow bee wearing golden crowns", desc:"The blue bird and the bee wear golden crowns — king and queen of the flower garden. Wrapped in golden sparkles and a pink heart, a legendary pair." } },
+  { count:1, cls:"r-limited", img:"assets/6-limited-truelove.png",
+    ja:{ name:"True Love", rarity:"リミテッド", short:"世界にひとつだけの、真実の愛のペア。", alt:"ピンクのハートとともに寄り添う青い鳥と黄色いミツバチの原画", desc:"青い鳥とミツバチ、ピンクのハートとともに寄り添う — ユーザーの原画そのままの姿。世界にひとつだけ、コレクションの頂点です。" },
+    en:{ name:"True Love", rarity:"Limited", short:"One pair, one true love — the only one in the world.", alt:"The original artwork of the blue bird and yellow bee nuzzling under a pink heart", desc:"The blue bird and the bee, cheek to cheek under a pink heart — the original artwork itself. One of one — the crown of the collection." } }
+];
+function stageName(s){ return s[LANG].name; }
+function stageOther(s){ return LANG==='ja' ? s.en.name : s.ja.name; }
+var current = 0, lbIndex = 0;
+var vImg = document.getElementById('vImg'), vStage = document.getElementById('vStage'),
+    vName = document.getElementById('vName'), vRarity = document.getElementById('vRarity'),
+    vDesc = document.getElementById('vDesc'), prog = document.getElementById('prog'),
+    vEn = document.getElementById('vEn'), vCount = document.getElementById('vCount'),
+    stepsEl = document.getElementById('steps');
+function countText(s){
+  return LANG==='ja' ? ('全4,444点中 ' + s.count.toLocaleString('ja-JP') + '本') : (s.count.toLocaleString('en-US') + ' of 4,444 pieces');
+}
+function stageLabel(i){ return LANG==='ja' ? ('ティア ' + (i+1) + ' / 6') : ('Tier ' + (i+1) + ' / 6'); }
+function stageShort(i){ return LANG==='ja' ? ('ティア ' + (i+1)) : ('Tier ' + (i+1)); }
+function setStage(i, instant){
+  current = i;
+  var s = STAGES[i], d = s[LANG];
+  if (instant) { vImg.src = s.img; vImg.alt = d.alt; vImg.style.opacity = 1; }
+  else { vImg.style.opacity = 0; setTimeout(function(){ vImg.src = s.img; vImg.alt = d.alt; vImg.style.opacity = 1; }, 160); }
+  vStage.textContent = stageLabel(i);
+  vName.textContent = d.name;
+  vEn.textContent = stageOther(s);
+  vRarity.textContent = d.rarity;
+  vRarity.className = 'rarity-pill ' + s.cls;
+  vDesc.textContent = d.desc;
+  vCount.textContent = countText(s);
+  prog.style.width = ((i+1)/6*100) + '%';
+  var btns = stepsEl.querySelectorAll('.step-btn');
+  for (var b = 0; b < btns.length; b++) btns[b].setAttribute('aria-pressed', b === i ? 'true' : 'false');
+}
+function buildSteps(){
+  stepsEl.innerHTML = '';
+  STAGES.forEach(function(s, i){
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'step-btn';
+    btn.setAttribute('aria-pressed', i === current ? 'true' : 'false');
+    btn.innerHTML = '<span class="n">' + (i+1) + '</span>' + s[LANG].name;
+    btn.addEventListener('click', function(){ setStage(i); });
+    stepsEl.appendChild(btn);
+  });
+  stepsEl.setAttribute('aria-label', LANG==='ja' ? 'ティア' : 'Tiers');
+}
+var grid = document.getElementById('grid'), ladder = document.getElementById('ladder');
+function buildGallery(){
+  grid.innerHTML = ''; ladder.innerHTML = '';
+  STAGES.forEach(function(s, i){
+    var d = s[LANG];
+    var card = document.createElement('button');
+    card.type = 'button'; card.className = 'card';
+    card.innerHTML =
+      '<span class="art" style="display:block"><img src="' + s.img + '" alt="' + d.alt + '" loading="lazy"></span>' +
+      '<span class="body" style="display:block">' +
+        '<span class="row" style="display:flex"><span class="stage-no">' + stageShort(i) + '</span><span class="rarity-pill ' + s.cls + '">' + d.rarity + '</span></span>' +
+        '<h3 style="margin-top:8px">' + d.name + '</h3><div class="stage-en">' + stageOther(s) + '</div>' +
+        '<p>' + d.short + '</p>' +
+      '</span>';
+    card.addEventListener('click', function(){ openLb(i); });
+    grid.appendChild(card);
+    var row = document.createElement('div');
+    row.className = 'lrow';
+    row.innerHTML = '<img class="thumb" src="' + s.img + '" alt="" loading="lazy">' +
+      '<div><div class="nm">' + d.name + '</div><div class="ds">' + stageShort(i) + ' · ' + countText(s) + '</div></div>' +
+      '<span class="rarity-pill ' + s.cls + '">' + d.rarity + '</span>';
+    ladder.appendChild(row);
+  });
+}
+var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'),
+    lbName = document.getElementById('lbName'), lbMeta = document.getElementById('lbMeta');
+function openLb(i){
+  lbIndex = i;
+  var s = STAGES[i], d = s[LANG];
+  lbImg.src = s.img; lbImg.alt = d.alt;
+  lbName.textContent = d.name;
+  lbMeta.textContent = stageShort(i) + ' · ' + d.rarity + ' · ' + (LANG==='ja' ? (s.count.toLocaleString('ja-JP') + '点') : (s.count.toLocaleString('en-US') + ' pieces'));
+  lb.classList.add('open');
+  document.getElementById('lbClose').focus();
+}
+function closeLb(){ lb.classList.remove('open'); }
+document.getElementById('lbClose').addEventListener('click', closeLb);
+lb.addEventListener('click', function(e){ if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeLb(); });
+function setLang(lang){
+  LANG = lang;
+  document.documentElement.lang = lang;
+  document.title = lang==='ja' ? 'Bird and The Bees — プレビュー' : 'Bird and The Bees — Preview';
+  var dict = I18N[lang];
+  var els = document.querySelectorAll('[data-lkey]');
+  for (var k = 0; k < els.length; k++){
+    var key = els[k].getAttribute('data-lkey');
+    if (dict[key] !== undefined) els[k].innerHTML = dict[key];
+  }
+  document.getElementById('langJa').setAttribute('aria-pressed', lang==='ja' ? 'true' : 'false');
+  document.getElementById('langEn').setAttribute('aria-pressed', lang==='en' ? 'true' : 'false');
+  document.getElementById('hamburger').setAttribute('aria-label', lang==='ja' ? 'メニュー' : 'Menu');
+  lb.setAttribute('aria-label', lang==='ja' ? 'アートワークビューア' : 'Artwork viewer');
+  document.getElementById('lbClose').setAttribute('aria-label', lang==='ja' ? '閉じる' : 'Close');
+  buildSteps(); buildGallery(); setStage(current, true);
+  if (lb.classList.contains('open')) openLb(lbIndex);
+  if (typeof window.refreshMintUI === 'function') window.refreshMintUI();
+}
+document.getElementById('langJa').addEventListener('click', function(){ setLang('ja'); });
+document.getElementById('langEn').addEventListener('click', function(){ setLang('en'); });
+var hamburger = document.getElementById('hamburger'), mobileMenu = document.getElementById('mobileMenu');
+function closeMenu(){
+  mobileMenu.classList.remove('open');
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+}
+hamburger.addEventListener('click', function(){
+  var open = mobileMenu.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+var mmLinks = mobileMenu.querySelectorAll('a');
+for (var m = 0; m < mmLinks.length; m++) mmLinks[m].addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+window.addEventListener('resize', function(){ if (window.innerWidth > 640) closeMenu(); });
+buildSteps(); buildGallery(); setStage(0, true);
+setLang('ja'); /* apply the JA dictionary to every labelled element on load */
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var holder = document.getElementById('hearts');
+  var colors = ['pink', 'gold', 'blue'];
+  for (var i = 0; i < 14; i++){
+    var h = document.createElement('span');
+    h.className = 'heart ' + colors[i % 3];
+    h.textContent = '♥';
+    h.style.left = (Math.random()*100) + 'vw';
+    h.style.fontSize = (11 + Math.random()*12) + 'px';
+    h.style.animationDuration = (11 + Math.random()*10) + 's';
+    h.style.animationDelay = (-Math.random()*18) + 's';
+    holder.appendChild(h);
+  }
+})();
+</script>
+
+<script>
+/* ── Bird and The Bees live mint ──────────────────────────────────────────────
+   Reads mintOpen() / totalMinted() from the NFT contract over a public
+   BSC RPC (no wallet needed). The mint panel activates by itself as
+   soon as mintOpen() returns true on-chain. Minting itself goes
+   through the visitor's wallet (MetaMask / Binance Wallet, chain 56):
+   mintFree() — Agent ID only, 1 per wallet, Bluebird only;
+   mintPaid(uint256) — public, qty 1 = 0.0005 BNB, qty 5 = 0.0024 BNB. */
+(function(){
+  var NFT = '0xFDA59CB76193B14073762D0fE702540d5d33064c';
+  var BNTB = '0x56cFC52e1346b3177816954687Ff776EEe865d34';
+  var RPC = 'https://bsc-dataseed1.defibit.io/';
+  var SEL = {
+    mintOpen: '0x24bbd049', totalMinted: '0xa2309ff8', paidMinted: '0x2806b8fb',
+    mintFree: '0x8ab53447', mintPaid: '0x26c7f77c', quotePaidFor: '0xfba2a03e',
+    mintedOf: '0x617692dd', freeMintedOf: '0xf7b856b1', paidMintedOf: '0xb41e2f7b'
+  };
+  var ERRORS = {
+    '0x0d9ab13f': 'notAgent', '0x589ed34b': 'mintClosed', '0x52df9fe5': 'soldOut',
+    '0xb92612ed': 'overLimit', '0xa5cc3e35': 'underpaid', '0x775c0fe5': 'freeClaimed',
+    '0xc9467753': 'freeCap'
+  };
+  var PRICE_1 = 500000000000000n; /* 0.0005 BNB */
+  var PRICE_5 = 2400000000000000n; /* 0.0024 BNB */
+
+  var TXT = {
+    ja: {
+      connect: 'ウォレットを接続', notConnected: '未接続',
+      floatClosed: 'ミント — 近日公開', floatOpen: '今すぐミント',
+      noteOpen: 'ミント受付中です — ウォレットを接続してミントしてください。',
+      paidLeftPre: '残り ', paidLeftPost: ' 件',
+      qty1: '0.0005 BNB · Honeybee / Lovebirds / Golden Duo / Royal Duo / True Love の抽選', qty5: '0.0024 BNB · 5個パック — 上位3レアリティのチャンスアップ',
+      paid1: 'MINT — 0.0005 BNB', paid5: 'MINT 5個 — 0.0024 BNB',
+      paidSub1: 'Honeybee / Lovebirds / Golden Duo / Royal Duo / True Love のいずれか + レアリティ次第のBNTB',
+      paidSub5: '5個パック — 上位3レアリティのチャンスアップ + レアリティ次第のBNTB',
+      packTitleTxt: '5個まとめてミント — 0.0024 BNB',
+      packSubTxt: '1トランザクションで5ミント + レアリティ次第のBNTB • 上位3レアリティのチャンスアップ',
+      rPackReady: '準備OK — 5個パックが利用可能です。ワンクリックで5ミント。',
+      rPackLimit: '5個パックには有料ミント枠が5つ必要です — このウォレットの残り枠では足りません。',
+      rConnect: 'まず上のボタンでウォレットを接続してください。',
+      rClosed: 'ミントはまだ開始していません — 開始までお待ちください。',
+      rFreeReady: '利用可能 — Agent ID が必要です。押すだけですぐミント。',
+      rFreeClaimed: '無料ミントは使用済みです（1ウォレット1回まで）。',
+      rPaidReady: '利用可能 — 押すだけですぐミント。',
+      rLimit: 'ウォレット上限（有料5回）に達しています。',
+      rSoldOut: '完売しました。',
+      liveOpenTxt: '● ライブ — ミント受付中', liveClosedTxt: 'ミント開始前', liveSoldOutTxt: '完売',
+      stages: ['🥚 たまご — まだ巣の中で眠っている','🐣 ふ化 — 最初のさえずり','🐦 巣立ち — 飛ぶ練習をしています','🌻 花畑 — 庭が目覚めました','👑 ロイヤル — 伝説の領域です','💎 True Love — 頂点に到達しました'],
+      infoFree: '無料ミント', infoDone: '使用済み', infoAvail: '未使用', infoPaid: '有料ミント',
+      noWallet: 'ウォレットが見つかりません。MetaMask または Binance Wallet をインストールしてから再読み込みしてください。',
+      connecting: 'ウォレットに接続しています…', switching: 'BNB Smart Chain（チェーン56）へ切り替えています…',
+      sign: 'ウォレットでトランザクションを確認してください…',
+      pending: '送信済み — 確定を待っています：', success: 'ミント成功！おめでとうございます 🐦🐝',
+      rejected: 'ウォレットでキャンセルされました。', failed: 'ミントに失敗しました。もう一度お試しください。',
+      viewTx: 'BscScanで見る ↗',
+      errNotAgent: '無料ミントは Agent ID 保有者限定です。このウォレットでは Agent ID が確認できませんでした。',
+      errFreeClaimed: '無料ミントはすでに使用済みです（1ウォレット1回まで）。',
+      errFreeCap: '無料プール（3,000点）は上限に達しました。',
+      errOverLimit: '上限を超えています — 1ウォレット最大6個（無料1回＋有料5回）までです。',
+      errSoldOut: '完売、またはそのプールは残っていません。',
+      errMintClosed: 'ミントはまだ開始していません。',
+      errUnderpaid: '送信額が不足しています。'
+    },
+    en: {
+      connect: 'Connect Wallet', notConnected: 'Not connected',
+      floatClosed: 'Mint — Coming Soon', floatOpen: 'Mint Now',
+      noteOpen: 'Minting is open — connect your wallet to mint.',
+      paidLeftPre: '', paidLeftPost: ' left',
+      qty1: '0.0005 BNB · draws Honeybee / Lovebirds / Golden Duo / Royal Duo / True Love', qty5: '0.0024 BNB · 5-pack — better odds at the top 3 rarities',
+      paid1: 'MINT — 0.0005 BNB', paid5: 'MINT 5 — 0.0024 BNB',
+      paidSub1: 'Draws Honeybee / Lovebirds / Golden Duo / Royal Duo / True Love + BNTB by rarity',
+      paidSub5: '5-pack — better odds at the top 3 rarities + BNTB by rarity',
+      packTitleTxt: 'MINT 5 AT ONCE — 0.0024 BNB',
+      packSubTxt: '5 mints in 1 transaction + BNTB by rarity • Better odds at the top 3 rarities',
+      rPackReady: 'Ready — 5-pack available, one click mints 5.',
+      rPackLimit: 'The 5-pack needs 5 paid slots left — your wallet does not have enough quota for the pack.',
+      rConnect: 'Connect your wallet with the button above first.',
+      rClosed: 'Minting has not started yet — please wait for launch.',
+      rFreeReady: 'Available — Agent ID required. One tap mints instantly.',
+      rFreeClaimed: 'Free mint already used (1 per wallet).',
+      rPaidReady: 'Available — one tap mints instantly.',
+      rLimit: 'Wallet limit reached (5 paid mints).',
+      rSoldOut: 'Sold out.',
+      liveOpenTxt: '● LIVE — Mint Open', liveClosedTxt: 'Mint Not Started', liveSoldOutTxt: 'Sold Out',
+      stages: ['🥚 Egg — still sleeping in the nest','🐣 Hatching — first chirps','🐦 Fledgling — learning to fly','🌻 Blooming — the garden wakes','👑 Royal — legendary territory','💎 True Love — the very top reached'],
+      infoFree: 'Free mint', infoDone: 'claimed', infoAvail: 'available', infoPaid: 'Paid mints',
+      noWallet: 'No wallet found. Install MetaMask or Binance Wallet, then reload this page.',
+      connecting: 'Connecting to your wallet…', switching: 'Switching to BNB Smart Chain (chain 56)…',
+      sign: 'Confirm the transaction in your wallet…',
+      pending: 'Sent — waiting for confirmation:', success: 'Mint successful! Congratulations 🐦🐝',
+      rejected: 'Cancelled in the wallet.', failed: 'The mint failed. Please try again.',
+      viewTx: 'View on BscScan ↗',
+      errNotAgent: 'The free mint is for Agent ID holders only — no Agent ID was found for this wallet.',
+      errFreeClaimed: 'Your free mint is already claimed (1 per wallet).',
+      errFreeCap: 'The free pool (3,000 pieces) is fully claimed.',
+      errOverLimit: 'Over the limit — max 6 per wallet (1 free + 5 paid).',
+      errSoldOut: 'Sold out, or that pool has none left.',
+      errMintClosed: 'Minting is not open yet.',
+      errUnderpaid: 'The amount sent was too low.'
+    }
+  };
+  function T(){ return TXT[(typeof LANG !== 'undefined' && LANG === 'en') ? 'en' : 'ja']; }
+  function fmt(n){ return n.toLocaleString('en-US'); }
+  function shortAddr(a){ return a.slice(0, 6) + '…' + a.slice(-4); }
+  function padAddr(a){ return '000000000000000000000000' + a.slice(2).toLowerCase(); }
+  function padUint(n){ var h = n.toString(16); while (h.length < 64) h = '0' + h; return h; }
+
+  var mintBtn = document.getElementById('mintBtn'),
+      panel = document.getElementById('mintPanel'),
+      mintedStat = document.getElementById('mintedStat'),
+      mintNote = document.querySelector('[data-lkey="mintNote"]'),
+      walletAddr = document.getElementById('walletAddr'),
+      walletInfo = document.getElementById('walletInfo'),
+      qty1Btn = document.getElementById('qty1'), qty2Btn = document.getElementById('qty2'),
+      qty3Btn = document.getElementById('qty3'), qty4Btn = document.getElementById('qty4'),
+      qtyNote = document.getElementById('qtyNote'),
+      bntbNote = document.getElementById('bntbNote'),
+      singlePriceBadge = document.getElementById('singlePriceBadge'),
+      freeBtn = document.getElementById('freeBtn'), paidBtn = document.getElementById('paidBtn'), packBtn = document.getElementById('packBtn'),
+      freeReason = document.getElementById('freeReason'), paidReason = document.getElementById('paidReason'), packReason = document.getElementById('packReason'),
+      paidTitle = document.getElementById('paidTitle'), paidSub = document.getElementById('paidSub'),
+      packTitle = document.getElementById('packTitle'), packSub = document.getElementById('packSub'),
+      agentFreeBtn = document.getElementById('agentFreeBtn'),
+      agentSingleBtn = document.getElementById('agentSingleBtn'),
+      agentPackBtn = document.getElementById('agentPackBtn'),
+      statusEl = document.getElementById('mintStatus'),
+      floatBtn = document.getElementById('floatMint');
+
+  var liveOpen = null, liveMinted = null;
+  var account = null, qty = 1, busy = false, wInfo = null;
+
+  /* Single source of truth for the singles agent prompt: the button
+     label, the visible prompt box and the copied text all derive from
+     the currently selected quantity (1–4) and its total price. */
+  function buildSinglePrompt(q){
+    var total = (q * 0.0005).toFixed(3);
+    return 'Use my Binance Agentic Wallet on BSC (chain 56) to call mintPaid(' + q + ') on the Bird and The Bees contract ' + NFT + ' and mint ' + q + ' Bird and The Bees for ' + total + ' BNB in total (public mint — no Agent ID needed). Paid mints draw Honeybee, Lovebirds, Golden Duo, Royal Duo or True Love — even a single paid mint can reach the top, chance very small. Mint has not opened yet — simulate first, then execute once mint opens.';
+  }
+  window.bntbSinglePrompt = function(){ return buildSinglePrompt(qty); };
+  var agentSinglePromptEl = document.getElementById('agentSinglePrompt');
+
+  function setStatus(text, cls, html){
+    statusEl.className = 'mint-status' + (cls ? ' ' + cls : '');
+    if (html) statusEl.innerHTML = text; else statusEl.textContent = text || '';
+  }
+
+  /* ── read-only chain access via public RPC ── */
+  function rpc(method, params){
+    return fetch(RPC, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: method, params: params })
+    }).then(function(r){ return r.json(); }).then(function(j){
+      if (j.error) throw new Error(j.error.message || 'RPC error');
+      return j.result;
+    });
+  }
+  function callUint(sel, addr){
+    return rpc('eth_call', [{ to: NFT, data: addr ? sel + padAddr(addr) : sel }, 'latest'])
+      .then(function(hex){ return parseInt(hex, 16); });
+  }
+  /* ── Paid pool counter ───────────────────────────────────────────
+     BNTB bonus is per-rarity, so the paid count cannot be derived
+     from the token accrual — read paidMinted() from the NFT contract
+     instead (max 1,444 paid pieces). paidPool stays null until the
+     first successful read; a failed RPC keeps the last verified
+     value — the UI shows "–", never a fabricated 0, before any
+     value is verified. */
+  var paidPool = null;
+  function refreshPaidPool(){
+    callUint(SEL.paidMinted).then(function(v){
+      if (!Number.isFinite(v)) return; /* keep the last verified value */
+      var paid = v;
+      if (paid > 1444) paid = 1444;
+      paidPool = paid;
+      updatePaidUI();
+    }).catch(function(){ /* keep the last verified value */ });
+  }
+  function updatePaidUI(){
+    var countEl = document.getElementById('livePaidCount');
+    if (!countEl) return;
+    var barEl = document.getElementById('livePaidBar');
+    var leftEl = document.getElementById('livePaidLeft');
+    if (paidPool === null){
+      countEl.textContent = '–';
+      if (barEl) barEl.style.width = '0%';
+      if (leftEl) leftEl.textContent = '…';
+      return;
+    }
+    countEl.textContent = fmt(paidPool);
+    if (barEl) barEl.style.width = (paidPool / 1444 * 100) + '%';
+    if (leftEl){
+      var t = T();
+      leftEl.textContent = (t.paidLeftPre || '') + fmt(1444 - paidPool) + (t.paidLeftPost || '');
+    }
+  }
+  function refreshChain(){
+    refreshPaidPool();
+    return callUint(SEL.mintOpen).then(function(v){
+      /* Undeployed contract (preview) returns empty data -> NaN -> null:
+         never present a failed read as a verified value. */
+      liveOpen = (v === 1) ? true : (v === 0 ? false : null);
+      return callUint(SEL.totalMinted);
+    }).then(function(v){
+      liveMinted = Number.isFinite(v) ? v : null;
+      window.refreshMintUI();
+    }).catch(function(){ /* keep the last known state */ });
+  }
+
+  function loadWalletInfo(){
+    if (!account) { wInfo = null; window.refreshMintUI(); return; }
+    Promise.all([callUint(SEL.freeMintedOf, account), callUint(SEL.paidMintedOf, account)])
+      .then(function(r){ wInfo = { free: r[0], paid: r[1] }; window.refreshMintUI(); })
+      .catch(function(){});
+  }
+
+  /* ── UI state ── */
+  window.refreshMintUI = function(){
+    var t = T();
+    window.__bntbLive = { minted: liveMinted, open: liveOpen, pillOpen: t.liveOpenTxt, pillClosed: t.liveClosedTxt, pillSoldOut: t.liveSoldOutTxt, stages: t.stages };
+    if (typeof window.updateHoneyPot === 'function') window.updateHoneyPot();
+    if (typeof updateTopTiersUI === 'function' && typeof topTiers !== 'undefined' && topTiers) updateTopTiersUI();
+    if (liveMinted !== null && mintedStat){
+      mintedStat.textContent = ((typeof LANG !== 'undefined' && LANG === 'en') ? 'Minted ' : 'ミント済み ') + fmt(liveMinted) + ' / 4,444';
+    }
+    updatePaidUI();
+    /* Panel + both big mint buttons are ALWAYS visible — never hidden.
+       Unusable buttons stay shown, disabled, with a short reason below. */
+    panel.hidden = false;
+    if (liveOpen === true){
+      mintBtn.disabled = busy;
+      mintBtn.classList.add('live');
+      mintBtn.textContent = account ? shortAddr(account) : t.connect;
+      if (floatBtn){ floatBtn.textContent = t.floatOpen; floatBtn.classList.add('live'); }
+      if (mintNote) mintNote.textContent = t.noteOpen;
+    } else {
+      mintBtn.disabled = true;
+      mintBtn.classList.remove('live');
+      mintBtn.textContent = (typeof LANG !== 'undefined' && LANG === 'en') ? 'Mint — Coming Soon' : 'ミント — 近日公開';
+      if (floatBtn){ floatBtn.textContent = t.floatClosed; floatBtn.classList.remove('live'); }
+      if (mintNote && liveOpen === false) mintNote.textContent = (typeof LANG !== 'undefined' && LANG === 'en') ? 'Minting is currently paused.' : '現在ミントは停止中です。';
+    }
+    walletAddr.textContent = account ? account : t.notConnected;
+    if (qty1Btn) qty1Btn.setAttribute('aria-pressed', qty === 1 ? 'true' : 'false');
+    if (qty2Btn) qty2Btn.setAttribute('aria-pressed', qty === 2 ? 'true' : 'false');
+    if (qty3Btn) qty3Btn.setAttribute('aria-pressed', qty === 3 ? 'true' : 'false');
+    if (qty4Btn) qty4Btn.setAttribute('aria-pressed', qty === 4 ? 'true' : 'false');
+    var totalBnb = (qty * 0.0005).toFixed(3);
+    var isEn = (typeof LANG !== 'undefined' && LANG === 'en');
+    if (qtyNote) qtyNote.textContent = isEn ? ('Total: ' + qty + ' mint' + (qty>1?'s':'') + ' = ' + totalBnb + ' BNB') : ('合計：' + qty + 'ミント = ' + totalBnb + ' BNB');
+    if (bntbNote) bntbNote.textContent = isEn ? 'Bonus by rarity: 1,000–32,000 BNTB each' : 'ボーナスはレアリティ次第：1,000～32,000 BNTB / 枚';
+    if (singlePriceBadge) singlePriceBadge.textContent = totalBnb + ' BNB';
+    if (paidTitle) paidTitle.textContent = 'MINT ' + qty + ' — ' + totalBnb + ' BNB';
+    if (paidSub) paidSub.textContent = isEn ? (qty + ' mint' + (qty>1?'s':'') + ' • Honeybee / Lovebirds / Golden Duo / Royal Duo / True Love + BNTB by rarity') : (qty + 'ミント • Honeybee / Lovebirds / Golden Duo / Royal Duo / True Love + レアリティ次第のBNTB');
+    if (packTitle) packTitle.textContent = t.packTitleTxt || 'MINT 5 — 0.0024 BNB';
+    if (packSub) packSub.textContent = t.packSubTxt || t.paidSub5;
+    window.__bntbQty = qty;
+    if (agentFreeBtn) agentFreeBtn.textContent = isEn ? '🤖 Copy agent prompt — FREE mint (0 BNB)' : '🤖 プロンプトをコピー — 無料ミント（0 BNB）';
+    if (agentSingleBtn) agentSingleBtn.textContent = isEn ? ('🤖 Copy agent prompt — ' + qty + ' mint' + (qty>1?'s':'') + ' (' + totalBnb + ' BNB)') : ('🤖 プロンプトをコピー — ' + qty + 'ミント（' + totalBnb + ' BNB）');
+    if (agentSinglePromptEl) agentSinglePromptEl.textContent = buildSinglePrompt(qty);
+    if (agentPackBtn) agentPackBtn.textContent = isEn ? '🤖 Copy agent prompt — 5-pack (0.0024 BNB)' : '🤖 プロンプトをコピー — 5個パック（0.0024 BNB）';
+    if (account && wInfo){
+      walletInfo.textContent = t.infoFree + ': ' + (wInfo.free >= 1 ? t.infoDone : t.infoAvail) + ' · ' + t.infoPaid + ': ' + wInfo.paid + ' / 5';
+    } else walletInfo.textContent = '';
+    var soldOutAll = liveMinted !== null && liveMinted >= 4444;
+    var freeBlocked = busy || liveOpen !== true || !account || soldOutAll || (wInfo ? wInfo.free >= 1 : false);
+    var paidBlocked = busy || liveOpen !== true || !account || soldOutAll || (wInfo ? (wInfo.paid + qty > 5) : false);
+    var packBlocked = busy || liveOpen !== true || !account || soldOutAll || (wInfo ? (wInfo.paid + 5 > 5) : false);
+    if (freeBtn) freeBtn.disabled = freeBlocked;
+    paidBtn.disabled = paidBlocked;
+    if (packBtn) packBtn.disabled = packBlocked;
+    if (freeReason){
+      freeReason.className = 'bmb-reason' + (!freeBlocked ? ' ok' : '');
+      freeReason.textContent = soldOutAll ? t.rSoldOut
+        : (liveOpen !== true ? t.rClosed
+        : (!account ? t.rConnect
+        : (wInfo && wInfo.free >= 1 ? t.rFreeClaimed : t.rFreeReady)));
+    }
+    if (paidReason){
+      paidReason.className = 'bmb-reason' + (!paidBlocked ? ' ok' : '');
+      paidReason.textContent = soldOutAll ? t.rSoldOut
+        : (liveOpen !== true ? t.rClosed
+        : (!account ? t.rConnect
+        : (wInfo && wInfo.paid + qty > 5 ? t.rLimit : t.rPaidReady)));
+    }
+    if (packReason){
+      packReason.className = 'bmb-reason' + (!packBlocked ? ' ok' : '');
+      packReason.textContent = soldOutAll ? t.rSoldOut
+        : (liveOpen !== true ? t.rClosed
+        : (!account ? t.rConnect
+        : (wInfo && wInfo.paid + 5 > 5 ? (t.rPackLimit || t.rLimit) : (t.rPackReady || t.rPaidReady))));
+    }
+  };
+
+  /* ── wallet ── */
+  function provider(){ return window.ethereum || null; }
+  function ensureChain(p){
+    return p.request({ method: 'eth_chainId' }).then(function(id){
+      if (id === '0x38') return;
+      setStatus(T().switching, '');
+      return p.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0x38' }] })
+        .catch(function(e){
+          if (e && e.code === 4902){
+            return p.request({ method: 'wallet_addEthereumChain', params: [{
+              chainId: '0x38', chainName: 'BNB Smart Chain',
+              nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
+              rpcUrls: ['https://bsc-dataseed.binance.org/'],
+              blockExplorerUrls: ['https://bscscan.com']
+            }] });
+          }
+          throw e;
+        });
+    });
+  }
+  function connect(){
+    var p = provider();
+    if (!p){ setStatus(T().noWallet, 'err'); return Promise.resolve(); }
+    busy = true; window.refreshMintUI(); setStatus(T().connecting, '');
+    return ensureChain(p).then(function(){
+      return p.request({ method: 'eth_requestAccounts' });
+    }).then(function(accs){
+      account = (accs && accs[0]) ? accs[0] : null;
+      busy = false; setStatus('', '');
+      window.refreshMintUI(); loadWalletInfo();
+    }).catch(function(e){
+      busy = false; window.refreshMintUI();
+      setStatus(e && e.code === 4001 ? T().rejected : T().failed, 'err');
+    });
+  }
+  function bindProviderEvents(){
+    var p = provider();
+    if (!p || !p.on || bindProviderEvents.done) return;
+    bindProviderEvents.done = true;
+    p.on('accountsChanged', function(accs){
+      account = (accs && accs[0]) ? accs[0] : null;
+      wInfo = null; window.refreshMintUI(); loadWalletInfo();
+    });
+    p.on('chainChanged', function(){ refreshChain(); loadWalletInfo(); });
+  }
+
+  function errorText(e){
+    var t = T(), blob = '';
+    try { blob = JSON.stringify(e || {}); } catch(_){}
+    blob += ' ' + (e && e.message ? e.message : '') + ' ' + (e && e.data ? e.data : '');
+    for (var sel in ERRORS){
+      if (blob.indexOf(sel) !== -1){
+        return { notAgent: t.errNotAgent, mintClosed: t.errMintClosed, soldOut: t.errSoldOut,
+                 overLimit: t.errOverLimit, underpaid: t.errUnderpaid, freeClaimed: t.errFreeClaimed,
+                 freeCap: t.errFreeCap }[ERRORS[sel]];
+      }
+    }
+    if (e && e.code === 4001) return t.rejected;
+    return t.failed;
+  }
+
+  function waitReceipt(hash){
+    return rpc('eth_getTransactionReceipt', [hash]).then(function(rec){
+      if (!rec) return new Promise(function(res){ setTimeout(res, 3000); }).then(function(){ return waitReceipt(hash); });
+      return rec;
+    });
+  }
+  function sendMint(data, value){
+    var p = provider();
+    if (!p){ setStatus(T().noWallet, 'err'); return; }
+    if (!account){ connect().then(function(){ if (account) sendMint(data, value); }); return; }
+    busy = true; window.refreshMintUI(); setStatus(T().sign, '');
+    ensureChain(p).then(function(){
+      return p.request({ method: 'eth_sendTransaction', params: [{ from: account, to: NFT, data: data, value: '0x' + value.toString(16) }] });
+    }).then(function(hash){
+      var t = T();
+      setStatus(t.pending + ' <a href="https://bscscan.com/tx/' + hash + '" target="_blank" rel="noopener">' + t.viewTx + '</a>', '', true);
+      return waitReceipt(hash).then(function(rec){
+        busy = false;
+        if (rec && rec.status === '0x1'){
+          setStatus(T().success + ' <a href="https://bscscan.com/tx/' + hash + '" target="_blank" rel="noopener">' + T().viewTx + '</a>', 'ok', true);
+        } else setStatus(T().failed, 'err');
+        window.refreshMintUI(); refreshChain(); loadWalletInfo();
+      });
+    }).catch(function(e){
+      busy = false; window.refreshMintUI();
+      setStatus(errorText(e), 'err');
+      refreshChain();
+    });
+  }
+
+  mintBtn.addEventListener('click', function(){
+    if (liveOpen !== true) return;
+    if (!account){ bindProviderEvents(); connect(); }
+    else panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  function bindQty(btn, n){ if (btn) btn.addEventListener('click', function(){ qty = n; window.refreshMintUI(); }); }
+  bindQty(qty1Btn, 1); bindQty(qty2Btn, 2); bindQty(qty3Btn, 3); bindQty(qty4Btn, 4);
+  if (freeBtn) freeBtn.addEventListener('click', function(){
+    if (busy) return;
+    if (wInfo && wInfo.free >= 1){ setStatus(T().errFreeClaimed, 'err'); return; }
+    sendMint(SEL.mintFree, 0n);
+  });
+  paidBtn.addEventListener('click', function(){
+    if (busy) return;
+    if (wInfo && wInfo.paid + qty > 5){ setStatus(T().errOverLimit, 'err'); return; }
+    sendMint(SEL.mintPaid + padUint(qty), BigInt(qty) * PRICE_1);
+  });
+  if (packBtn) packBtn.addEventListener('click', function(){
+    if (busy) return;
+    if (wInfo && wInfo.paid + 5 > 5){ setStatus(T().errOverLimit, 'err'); return; }
+    sendMint(SEL.mintPaid + padUint(5), PRICE_5);
+  });
+
+  bindProviderEvents();
+  window.refreshMintUI();
+  refreshChain();
+  /* ── Top-tier tracker: Limited (4444) + Legendary (4381–4443) ──
+     ownerOf() REVERTS for an unminted token — a revert means "not minted
+     yet", not an error. Only a non-revert RPC failure keeps the last
+     known state. 64 parallel eth_calls, once a minute (cheaper than the
+     30 s totalMinted poll). */
+  var SEL_OWNER_OF = '0x6352211e';
+  var topTiers = { limited: null, legendaryLeft: null };
+  function callOwnerOf(id){
+    return rpc('eth_call', [{ to: NFT, data: SEL_OWNER_OF + padUint(id) }, 'latest'])
+      .then(function(hex){ if (!hex || hex === '0x') return '0x' + '0'.repeat(64); /* empty return = unminted (preview: contract not deployed) */ return hex; })
+      .catch(function(err){
+        var msg = (err && err.message) || '';
+        if (/revert/i.test(msg)) return '0x' + '0'.repeat(64); /* unminted */
+        return null; /* real RPC failure */
+      });
+  }
+  function updateTopTiersUI(){
+    var t = T();
+    var limState = document.getElementById('liveLimitedState');
+    var legState = document.getElementById('liveLegendaryState');
+    var limCount = document.getElementById('liveLimited');
+    var legCount = document.getElementById('liveLegendary');
+    if (topTiers.limited !== null && limState){
+      limState.textContent = topTiers.limited ? (t.liveLimitedLeft || 'still unclaimed') : (t.liveLimitedTaken || 'claimed');
+      limState.classList.toggle('taken', !topTiers.limited);
+      if (limCount) limCount.textContent = topTiers.limited ? '1 / 1' : '0 / 1';
+    }
+    if (topTiers.legendaryLeft !== null && legState){
+      if (legCount) legCount.textContent = topTiers.legendaryLeft + ' / 63';
+      legState.textContent = topTiers.legendaryLeft + ' ' + (t.liveLegendaryLeft || 'remaining');
+      legState.classList.toggle('taken', topTiers.legendaryLeft === 0);
+    }
+  }
+  function refreshTopTiers(){
+    var ids = [];
+    for (var id = 4381; id <= 4444; id++) ids.push(id);
+    Promise.all(ids.map(function(id){ return callOwnerOf(id); })).then(function(results){
+      var legendaryLeft = 0, limitedTaken = false;
+      for (var i = 0; i < results.length; i++){
+        if (results[i] === null) return; /* RPC failed — keep last known state */
+        var minted = (results[i] !== '0x' + '0'.repeat(64));
+        if (ids[i] === 4444) limitedTaken = minted;
+        else if (!minted) legendaryLeft++;
+      }
+      topTiers = { limited: !limitedTaken, legendaryLeft: legendaryLeft };
+      updateTopTiersUI();
+    }).catch(function(){});
+  }
+  refreshTopTiers();
+  setInterval(refreshTopTiers, 60000);
+  setInterval(refreshChain, 30000);
+})();
+</script>
+
+<script>
+/* ── Priority Lane: agent prompt + Agent ID checker ───────────────
+   Pattern follows PanduAGENT. The prompt is pasted into the visitor's
+   Binance Agentic Wallet, which calls mintFree() on the Bird and The Bees NFT.
+   The checker reads the .ai Agent ID registry (balanceOf) over public
+   BSC RPCs — read-only, no wallet connection needed. */
+(function(){
+  var REGISTRY = '0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F';
+  var SEL_BALANCE = '0x70a08231'; /* balanceOf(address) */
+  var RPCS = [
+    'https://bsc-dataseed1.defibit.io/',
+    'https://bsc-dataseed.binance.org/',
+    'https://bsc-dataseed1.ninicoin.io/'
+  ];
+  var AGENT_PROMPT = 'Use my Binance Agentic Wallet on BSC (chain 56) to call mintFree() on the Bird and The Bees contract 0xFDA59CB76193B14073762D0fE702540d5d33064c and mint my FREE Bird and The Bees (mint #1, Agent ID required). My wallet holds a .ai Agent ID and has not claimed its free mint yet. Mint has not opened yet — simulate first, then execute once mint opens.';
+  var AGENT_PROMPT_PACK = 'Use my Binance Agentic Wallet on BSC (chain 56) to call mintPaid(5) on the Bird and The Bees contract 0xFDA59CB76193B14073762D0fE702540d5d33064c and mint 5 Bird and The Bees at once for 0.0024 BNB in total (public mint — no Agent ID needed). Each of the 5 draws can reach Royal Duo (Legendary) and True Love, and the pack adds a 1-in-20 redirect to the top pool per draw. Mint has not opened yet — simulate first, then execute once mint opens.';
+  function singlePrompt(){
+    if (typeof window.bntbSinglePrompt === 'function') return window.bntbSinglePrompt();
+    var q = window.__bntbQty || 1;
+    var total = (q * 0.0005).toFixed(3);
+    return 'Use my Binance Agentic Wallet on BSC (chain 56) to call mintPaid(' + q + ') on the Bird and The Bees contract 0xFDA59CB76193B14073762D0fE702540d5d33064c and mint ' + q + ' Bird and The Bees for ' + total + ' BNB in total (public mint — no Agent ID needed). Paid mints draw Honeybee, Lovebirds, Golden Duo, Royal Duo or True Love — even a single paid mint can reach the top, chance very small. Mint has not opened yet — simulate first, then execute once mint opens.';
+  }
+  var CTXT = {
+    ja: {
+      copied: 'コピーしました ✓', copyFail: 'コピーに失敗しました — テキストを手動で選択してください',
+      invalid: '有効な 0x アドレスを入力してください（16進数40文字）。',
+      checking: 'チェーンで確認しています…',
+      has: '✓ このウォレットは Agent ID（.ai）を保有しています — エージェント経由で無料ミント（ミント #1）を請求できます。',
+      none: '✗ このアドレスに Agent ID は見つかりませんでした — 無料ミントには Agent ID が必要です。まず Binance アプリで無料の .ai Agent ID を取得してください。',
+      fail: '現在チェーンを読み取れませんでした — もう一度お試しください。'
+    },
+    en: {
+      copied: 'Copied ✓', copyFail: 'Copy failed — select the text manually',
+      invalid: 'Enter a valid 0x address (40 hex characters).',
+      checking: 'Checking on-chain…',
+      has: '✓ This wallet holds an Agent ID (.ai) — it can claim the FREE Bird and The Bees mint (mint #1) through its agent.',
+      none: '✗ No Agent ID found for this address — the free mint needs an Agent ID. Claim a free .ai Agent ID in the Binance app first.',
+      fail: 'Could not read the chain right now — please try again.'
+    }
+  };
+  function CT(){ return CTXT[(typeof LANG !== 'undefined' && LANG === 'en') ? 'en' : 'ja']; }
+  function $(id){ return document.getElementById(id); }
+
+  function ethCall(to, data){
+    var body = JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'eth_call', params: [{ to: to, data: data }, 'latest'] });
+    function tryRpc(i){
+      if (i >= RPCS.length) return Promise.reject(new Error('all RPCs failed'));
+      var ctrl = ('AbortController' in window) ? new AbortController() : null;
+      var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, 10000) : null;
+      return fetch(RPCS[i], { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, signal: ctrl ? ctrl.signal : undefined })
+        .then(function(r){ return r.json(); })
+        .then(function(j){
+          if (timer) clearTimeout(timer);
+          if (j && j.result && j.result !== '0x') return j.result;
+          return tryRpc(i + 1);
+        })
+        .catch(function(){ if (timer) clearTimeout(timer); return tryRpc(i + 1); });
+    }
+    return tryRpc(0);
+  }
+
+  /* ── agent prompts: shown by default, one tap copies ──
+     Every prompt is complete (contract, function, quantity, price) and
+     ready to paste into the Binance Agentic Wallet — nothing to fill in. */
+  var promptEl = $('agentPrompt');
+  if (promptEl) promptEl.textContent = AGENT_PROMPT;
+  var packPromptEl = $('agentPackPrompt');
+  if (packPromptEl) packPromptEl.textContent = AGENT_PROMPT_PACK;
+  function copyText(text, btn, restore){
+    if (!btn) return;
+    function done(ok){
+      btn.textContent = ok ? CT().copied : CT().copyFail;
+      if (restore) setTimeout(restore, 2600);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(false); });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { done(document.execCommand('copy')); } catch (e) { done(false); }
+      document.body.removeChild(ta);
+    }
+  }
+  function dictRestore(btn, lkey){
+    return function(){
+      var dict = (typeof I18N !== 'undefined') ? I18N[(typeof LANG !== 'undefined' && LANG === 'en') ? 'en' : 'ja'] : null;
+      if (dict && dict[lkey]) btn.textContent = dict[lkey];
+    };
+  }
+  function uiRestore(){
+    if (typeof window.refreshMintUI === 'function') window.refreshMintUI();
+  }
+  function bindCopy(btnId, getText, restore){
+    var btn = $(btnId);
+    if (!btn) return;
+    btn.addEventListener('click', function(){ copyText(getText(), btn, restore); });
+  }
+  var laneFreeBtn = $('copyPromptBtn'), lanePackBtn = $('copyPackPromptBtn');
+  bindCopy('copyPromptBtn', function(){ return AGENT_PROMPT; }, laneFreeBtn ? dictRestore(laneFreeBtn, 'laneCopyBtn') : null);
+  bindCopy('copyPackPromptBtn', function(){ return AGENT_PROMPT_PACK; }, lanePackBtn ? dictRestore(lanePackBtn, 'laneCopyPackBtn') : null);
+  bindCopy('agentFreeBtn', function(){ return AGENT_PROMPT; }, uiRestore);
+  bindCopy('agentSingleBtn', singlePrompt, uiRestore);
+  bindCopy('agentPackBtn', function(){ return AGENT_PROMPT_PACK; }, uiRestore);
+
+  /* ── Agent ID checker (read-only) ── */
+  var checkBtn = $('agentCheckBtn');
+  if (checkBtn) checkBtn.addEventListener('click', function(){
+    var addr = ($('agentAddr').value || '').trim();
+    var out = $('agentCheckOut');
+    var t = CT();
+    if (!/^0x[0-9a-fA-F]{40}$/.test(addr)){ out.className = 'mint-status err'; out.textContent = t.invalid; return; }
+    out.className = 'mint-status'; out.textContent = t.checking;
+    var data = SEL_BALANCE + '000000000000000000000000' + addr.slice(2).toLowerCase();
+    ethCall(REGISTRY, data).then(function(bal){
+      var n = parseInt(bal, 16);
+      out.className = 'mint-status ' + (n > 0 ? 'ok' : 'err');
+      out.textContent = n > 0 ? t.has : t.none;
+    }).catch(function(){
+      out.className = 'mint-status err';
+      out.textContent = t.fail;
+    });
+  });
+})();
+</script>
+<script>
+/* ── Live extras: 5-pack spotlight + Recent Mints feed ────────────
+   Recent Mints reads Transfer(from = 0x0) logs of the Bird and The Bees NFT
+   contract via eth_getLogs over public BSC RPCs, scanning backwards
+   in 50,000-block chunks until it has the 8 latest mints. The page's
+   primary RPC (bsc-dataseed) rejects eth_getLogs outright (-32005),
+   so the feed uses log-capable public endpoints, tried in order.
+   On any failure the last verified list stays on screen — entries
+   are never invented. Refreshes every 60 seconds. */
+(function(){
+  var NFT = '0xFDA59CB76193B14073762D0fE702540d5d33064c';
+  var TRANSFER = '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef';
+  var ZERO_TOPIC = '0x0000000000000000000000000000000000000000000000000000000000000000';
+  var LOG_RPCS = [
+    'https://bsc.mytokenpocket.vip',
+    'https://bsc.publicnode.com',
+    'https://bsc-mainnet.public.blastapi.io',
+    'https://bsc.drpc.org'
+  ];
+  var CHUNK = 50000, MAX_CHUNKS = 6, WANT = 8;
+  var RTXT = {
+    ja: { loading: 'チェーンから最新のミントを読み込み中…', failed: '更新できませんでした — 最後に確認したデータを表示しています。', failedFirst: 'チェーンを読み取れませんでした — 自動で再試行します。', empty: 'この期間にミントは見つかりませんでした。' },
+    en: { loading: 'Loading the latest mints from the chain…', failed: 'Refresh failed — showing the last verified data.', failedFirst: 'Could not read the chain — will retry automatically.', empty: 'No mints found in the scanned period.' }
+  };
+  function RT(){ return RTXT[(typeof LANG !== 'undefined' && LANG === 'en') ? 'en' : 'ja']; }
+  function $(id){ return document.getElementById(id); }
+  function shortAddr(a){ return a.slice(0, 6) + '…' + a.slice(-4); }
+  function tierIndex(id){
+    if (id <= 3000) return 0;
+    if (id <= 3700) return 1;
+    if (id <= 4200) return 2;
+    if (id <= 4380) return 3;
+    if (id <= 4443) return 4;
+    return 5;
+  }
+  function rpcOn(base, method, params){
+    var ctrl = ('AbortController' in window) ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, 20000) : null;
+    return fetch(base, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: method, params: params }),
+      signal: ctrl ? ctrl.signal : undefined
+    }).then(function(r){ return r.json(); }).then(function(j){
+      if (timer) clearTimeout(timer);
+      if (!j || j.error || j.result === undefined) throw new Error('RPC error');
+      return j.result;
+    }).catch(function(e){ if (timer) clearTimeout(timer); throw e; });
+  }
+  function logRpc(method, params){
+    function attempt(i){
+      if (i >= LOG_RPCS.length) return Promise.reject(new Error('all log RPCs failed'));
+      return rpcOn(LOG_RPCS[i], method, params).catch(function(){ return attempt(i + 1); });
+    }
+    return attempt(0);
+  }
+
+  var entries = null; /* null = nothing verified yet */
+  var lastFailed = false, fetching = false;
+  var blockTimes = {};
+
+  function fmtTime(ts){
+    var d = new Date(ts * 1000);
+    var loc = (typeof LANG !== 'undefined' && LANG === 'en') ? 'en-US' : 'ja-JP';
+    return d.toLocaleDateString(loc, { month: 'short', day: 'numeric' }) + ' ' +
+           d.toLocaleTimeString(loc, { hour: '2-digit', minute: '2-digit' });
+  }
+  function renderRecent(){
+    var list = $('recentList'), status = $('recentStatus');
+    if (!list || !status) return;
+    var t = RT();
+    if (!entries){
+      list.innerHTML = '';
+      status.textContent = lastFailed ? t.failedFirst : t.loading;
+      return;
+    }
+    if (!entries.length){
+      list.innerHTML = '';
+      status.textContent = t.empty;
+      return;
+    }
+    status.textContent = lastFailed ? t.failed : '';
+    list.innerHTML = '';
+    entries.forEach(function(e){
+      var s = STAGES[tierIndex(e.id)], d = s[LANG];
+      var li = document.createElement('li');
+      li.className = 'recent-item';
+      li.innerHTML =
+        '<span class="recent-id">#' + e.id.toLocaleString('en-US') + '</span>' +
+        '<span class="rarity-pill ' + s.cls + '">' + d.rarity + '</span>' +
+        '<span class="recent-tier">' + d.name + '</span>' +
+        '<span class="recent-meta"><span class="recent-addr">' + shortAddr(e.to) + '</span>' +
+        (e.time ? '<br>' + fmtTime(e.time) : '') + '</span>';
+      list.appendChild(li);
+    });
+  }
+  function getBlockTime(blockNum){
+    if (blockTimes[blockNum]) return Promise.resolve(blockTimes[blockNum]);
+    return logRpc('eth_getBlockByNumber', ['0x' + blockNum.toString(16), false])
+      .then(function(b){
+        var ts = b && b.timestamp ? parseInt(b.timestamp, 16) : null;
+        if (ts) blockTimes[blockNum] = ts;
+        return ts;
+      }).catch(function(){ return null; });
+  }
+  function refreshRecent(){
+    if (fetching) return;
+    fetching = true;
+    if (!entries) renderRecent();
+    logRpc('eth_blockNumber', []).then(function(hex){
+      var latest = parseInt(hex, 16);
+      var found = [];
+      function step(chunk){
+        if (found.length >= WANT || chunk >= MAX_CHUNKS) return Promise.resolve(found);
+        var to = latest - chunk * CHUNK;
+        var from = Math.max(0, to - CHUNK + 1);
+        return logRpc('eth_getLogs', [{ address: NFT,
+          fromBlock: '0x' + from.toString(16), toBlock: '0x' + to.toString(16),
+          topics: [TRANSFER, ZERO_TOPIC] }]).then(function(logs){
+          for (var i = 0; i < logs.length; i++) found.push(logs[i]);
+          return step(chunk + 1);
+        }, function(err){
+          if (found.length) return found; /* keep what this scan verified */
+          throw err;
+        });
+      }
+      return step(0);
+    }).then(function(logs){
+      logs.sort(function(a, b){
+        var db = parseInt(b.blockNumber, 16) - parseInt(a.blockNumber, 16);
+        if (db !== 0) return db;
+        return parseInt(b.logIndex || '0x0', 16) - parseInt(a.logIndex || '0x0', 16);
+      });
+      var top = logs.slice(0, WANT);
+      var seen = {}, blocks = [];
+      top.forEach(function(l){
+        var bn = parseInt(l.blockNumber, 16);
+        if (!seen[bn]){ seen[bn] = true; blocks.push(bn); }
+      });
+      return Promise.all(blocks.map(getBlockTime)).then(function(){
+        entries = top.map(function(l){
+          var bn = parseInt(l.blockNumber, 16);
+          return {
+            id: parseInt(l.topics[3], 16),
+            to: '0x' + l.topics[2].slice(-40),
+            block: bn,
+            time: blockTimes[bn] || null
+          };
+        });
+        lastFailed = false;
+        fetching = false;
+        renderRecent();
+      });
+    }).catch(function(){
+      fetching = false;
+      lastFailed = true;
+      renderRecent(); /* last verified list stays untouched */
+    });
+  }
+
+  /* ── 5-pack spotlight: scroll to #mint and select the 5-pack ── */
+  var spotBtn = $('packSpotBtn');
+  if (spotBtn) spotBtn.addEventListener('click', function(){
+    var mintSec = $('mint');
+    if (mintSec) mintSec.scrollIntoView({ behavior: 'smooth' });
+    var group = document.querySelector('.mint-group-pack');
+    var packBtn = $('packBtn');
+    setTimeout(function(){
+      if (group){
+        group.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        group.classList.remove('flash');
+        void group.offsetWidth;
+        group.classList.add('flash');
+        setTimeout(function(){ group.classList.remove('flash'); }, 1900);
+      }
+      if (packBtn) packBtn.focus({ preventScroll: true });
+    }, 500);
+  });
+
+  /* Re-render the feed when the language toggle fires refreshMintUI. */
+  if (typeof window.refreshMintUI === 'function'){
+    var origRefreshMintUI = window.refreshMintUI;
+    window.refreshMintUI = function(){
+      origRefreshMintUI();
+      renderRecent();
+    };
+  }
+
+  renderRecent();
+  refreshRecent();
+  setInterval(refreshRecent, 60000);
+})();
+</script>
+<script>
+/* ── Live honey pot ────────────────────────────────────────────────
+   Reads window.__bntbLive, kept fresh by the mint script's 30s
+   on-chain poll of mintOpen()/totalMinted(). The honey in the pot
+   rises from empty (0 minted) to full (4,444 minted); hearts appear
+   and the bee bobs faster with the same progress. */
+(function(){
+  var TOTAL = 4444;
+  var pot = document.getElementById('honeyPot');
+  if (!pot) return;
+  var fill = document.getElementById('honeyFill');
+  var bee = document.getElementById('honeyBee');
+  var dotsHolder = document.getElementById('honeyDots');
+  var dots = [];
+  var DOT_POS = [[18,30],[70,20],[30,64],[78,58],[50,14],[12,58],[62,74],[40,40],[84,36],[24,80],[56,84],[88,72],[8,40],[46,68],[68,44],[34,18],[58,30],[80,84]];
+  for (var i = 0; i < DOT_POS.length; i++){
+    var d = document.createElement('span');
+    d.className = 'honey-dot';
+    d.textContent = '♥';
+    d.style.left = DOT_POS[i][0] + '%'; d.style.top = DOT_POS[i][1] + '%';
+    d.style.animationDelay = (-(i * .37) % 4) + 's';
+    dotsHolder.appendChild(d); dots.push(d);
+  }
+  function fmt(n){ return n.toLocaleString('en-US'); }
+  window.updateHoneyPot = function(){
+    var live = window.__bntbLive || {};
+    var minted = (typeof live.minted === 'number') ? live.minted : null;
+    var open = live.open;
+    var pct = minted === null ? 0 : minted / TOTAL;
+    pot.style.setProperty('--grow', pct.toFixed(4));
+    if (fill) fill.style.height = (pct * 100) + '%';
+    if (bee) bee.style.animationDuration = (3.2 - pct * 1.6) + 's';
+    var onCount = Math.round(pct * dots.length);
+    for (var j = 0; j < dots.length; j++) dots[j].classList.toggle('on', j < onCount);
+    document.getElementById('liveMinted').textContent = minted === null ? '–' : fmt(minted);
+    document.getElementById('livePct').textContent = minted === null ? '–' : (pct * 100).toFixed(1) + '%';
+    document.getElementById('liveRemaining').textContent = minted === null ? '–' : fmt(TOTAL - minted);
+    document.getElementById('liveBar').style.width = (pct * 100) + '%';
+    var pill = document.getElementById('livePill'), pillText = document.getElementById('livePillText');
+    var soldOut = minted !== null && minted >= TOTAL;
+    pill.classList.toggle('open', open === true && !soldOut);
+    pillText.textContent = soldOut ? (live.pillSoldOut || 'Sold Out')
+      : (open === true ? (live.pillOpen || 'LIVE') : (open === false ? (live.pillClosed || '—') : pillText.textContent));
+    pillText.removeAttribute('data-lkey');
+    var stages = live.stages || ['🥚','🐣','🐦','🌻','👑','💎'];
+    var si = pct <= 0 ? 0 : pct < .15 ? 1 : pct < .4 ? 2 : pct < .75 ? 3 : pct < .97 ? 4 : 5;
+    document.getElementById('liveStage').textContent = stages[si];
+  };
+  window.updateHoneyPot();
+  setInterval(function(){ if (typeof window.updateHoneyPot === 'function') window.updateHoneyPot(); }, 4000);
+})();
+</script>
+</body>
+</html>
