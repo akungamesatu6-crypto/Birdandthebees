@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
 <link rel="icon" href="data:," />
-<title>Bird and The Bees — プレビュー</title>
+<title>Bird and The Bees</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -75,8 +75,6 @@
   @media(max-width:640px){.badge{display:none}.hamburger{display:block}}
   @media(min-width:641px){.mobile-menu{display:none!important}}
 
-  .preview-banner{background:#fff3d0;border-bottom:2px solid #d99a00;color:#6b4e00;text-align:center;font-weight:700;font-size:14px;padding:12px 16px;position:relative;z-index:3}
-  @media (prefers-color-scheme: dark){.preview-banner{background:#3d3115;color:#f0b93c;border-color:#f0b93c}}
 
   /* faq */
   .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
@@ -447,7 +445,7 @@
 <header>
   <div class="wrap bar">
     <a class="brand" href="#top">BIRD<span> &amp; BEES</span></a>
-    <span class="badge" data-lkey="badge">プレビュー — 近日公開</span>
+    <span class="badge" data-lkey="badge">ミント開始 23:00 WIB（16:00 UTC）</span>
     <a class="header-mint-btn" href="#mint" data-lkey="navMint">ミント</a>
     <div class="lang-toggle" role="group" aria-label="Language / 言語">
       <button type="button" id="langJa" aria-pressed="true">日本語</button>
@@ -485,7 +483,6 @@
 </header>
 
 <main id="top">
-  <div class="preview-banner"><span data-lkey="previewBanner">プレビュー — コントラクトはまだデプロイされていません。ミントは開始していません。表示されている価格と数量は予定です。</span></div>
 
   <!-- HERO -->
   <div class="wrap hero">
@@ -943,7 +940,7 @@
       <div style="margin-top:10px"><a class="x-link" href="https://x.com/intent/post?text=%F0%9F%90%A6%F0%9F%90%9D%20Bird%20and%20The%20Bees%20%E2%80%94%204%2C444%20birds%20%26%20bees%20on%20BNB%20Chain%20%F0%9F%92%9B%20https%3A%2F%2Fbntb.fun%2F%20%40Seraphinft" target="_blank" rel="noopener" data-lkey="footX">Xでシェアする</a></div>
       <div style="margin-top:8px"><a class="x-link" href="https://x.com/Seraphinft" target="_blank" rel="noopener" data-lkey="footFollow">Xでフォローする @Seraphinft</a></div>
       <div style="margin-top:8px" data-lkey="footToken">トークン：BNTB</div>
-      <div style="margin-top:6px" data-lkey="footNote">プレビュー — ミントはまだ開始していません。</div>
+      <div style="margin-top:6px" data-lkey="footNote">ミントは23:00 WIB（16:00 UTC）に開始します。</div>
     </div>
   </footer>
 </main>
@@ -968,7 +965,7 @@
 var LANG = 'ja';
 var I18N = {
   ja: {
-    badge:'プレビュー — 近日公開', previewBanner:'プレビュー — コントラクトはまだデプロイされていません。ミントは開始していません。表示されている価格と数量は予定です。',
+    badge:'ミント開始 23:00 WIB（16:00 UTC）',
     navLive:'ライブ', navGrow:'出会い', navCollection:'コレクション', navRarity:'レアリティ', navMint:'ミント', navToken:'トークン', navMarket:'マーケット', navLimited:'限定', navFaq:'FAQ', navX:'Xでシェア',
     liveTitle:'ライブミント状況<span class="en-sub">Live Mint Status</span>',
     liveDesc:'ハニーポットの中のハチミツは、ミントが進むほどいっぱいになります — 状況は30秒ごとにチェーンから自動更新されます。',
@@ -1023,7 +1020,7 @@ var I18N = {
     rule2:'<b>ランダムミント</b> — ティアはミント時に抽選で決まり、順番には選べません。',
     rule3:'<b>有料プールは1,444点</b> — Honeybee 700 · Lovebirds 500 · Golden Duo 180 · Royal Duo 63 · True Love 1。',
     rule4:'<b>単品でも頂点に届く</b> — 有料ミントはすべて、レジェンダリー＆リミテッドの抽選対象です。5個パックはチャンスが少しアップ。',
-    mintBtn:'ミント — 近日公開', mintNote:'ミントはまだ開始していません — コントラクトのデプロイ後にオープンします。',
+    mintBtn:'ミント — 近日公開', mintNote:'ミントは23:00 WIB（16:00 UTC）に開始します。',
     mpWallet:'ウォレット', mpQty:'数量', freeBtn:'無料ミント（Agent ID）',
     laneTitle:'プライオリティレーン — Agent ID保有者向け無料ミント',
     laneDesc:'あなたのエージェントがミントします。無料ミント用、または5個パック用のプロンプトをコピーして Binance Agentic Wallet に貼り付けてください。',
@@ -1047,7 +1044,7 @@ var I18N = {
     mktP:'マーケットプレイスはミント開始と同時にオープン — 保有者はコレクション専用マーケットプレイスで、Bluebirdから一点物のTrue Loveまで出品・取引できます。',
     mktLi1:'6つのティアすべてを売買可能', mktLi2:'True Loveが取引できる唯一の場所', mktLi3:'ミント開始と同時にオープン',
     footLine:'4,444羽の鳥とミツバチ — BluebirdからTrue Loveまで。',
-    footX:'Xでシェアする', footFollow:'Xでフォローする @Seraphinft', footToken:'トークン：BNTB', footNote:'プレビュー — ミントはまだ開始していません。',
+    footX:'Xでシェアする', footFollow:'Xでフォローする @Seraphinft', footToken:'トークン：BNTB', footNote:'ミントは23:00 WIB（16:00 UTC）に開始します。',
     faqTitle:'よくある質問<span class="en-sub">FAQ</span>',
     faqDesc:'ミントの仕組み、BNTBボーナス、マーケットプレイスについて、よく寄せられる質問をまとめました。',
     faqQ1:'無料ミントの条件を教えてください',
@@ -1064,7 +1061,7 @@ var I18N = {
     faqA6:'ミント開始と同時にオープンします。保有者は6つのティアすべてを出品・取引できます。'
   },
   en: {
-    badge:'Preview — Coming Soon', previewBanner:'Preview — contracts are not deployed yet. Minting has not started. Prices and counts shown are the planned specs.',
+    badge:'Mint opens 23:00 WIB (16:00 UTC)',
     navLive:'Live', navGrow:'Meet', navCollection:'Collection', navRarity:'Rarity', navMint:'Mint', navToken:'Token', navMarket:'Market', navLimited:'Limited', navFaq:'FAQ', navX:'Share on X',
     liveTitle:'Live Mint Status<span class="en-sub">ライブミント状況</span>',
     liveDesc:'The honey in the pot rises with every mint — status refreshes from the chain every 30 seconds.',
@@ -1119,7 +1116,7 @@ var I18N = {
     rule2:'<b>Random mint</b> — your tier is drawn at mint time; you cannot pick in order.',
     rule3:'<b>Only 1,444 paid-pool pieces</b> — Honeybee 700 · Lovebirds 500 · Golden Duo 180 · Royal Duo 63 · True Love 1.',
     rule4:'<b>Singles can reach the top</b> — every paid mint can draw Legendary &amp; Limited. The 5-pack lifts the odds a little.',
-    mintBtn:'Mint — Coming Soon', mintNote:'Minting has not started yet — it opens after the contracts deploy.',
+    mintBtn:'Mint — Coming Soon', mintNote:'Mint opens at 23:00 WIB (16:00 UTC).',
     mpWallet:'Wallet', mpQty:'Quantity', freeBtn:'Free Mint (Agent ID)',
     laneTitle:'Priority Lane — free mint for Agent ID holders',
     laneDesc:'Your agent mints for you. Copy the free-mint prompt — or the 5-pack prompt — and paste it to your Binance Agentic Wallet.',
@@ -1143,7 +1140,7 @@ var I18N = {
     mktP:'The marketplace opens together with minting — holders can list and trade on the collection marketplace, from Bluebird to the one-of-one True Love.',
     mktLi1:'All 6 tiers can be bought and sold', mktLi2:'The only place True Love can trade', mktLi3:'Opens together with minting',
     footLine:'4,444 birds and bees — from Bluebird to True Love.',
-    footX:'Share on X', footFollow:'Follow @Seraphinft on X', footToken:'Token: BNTB', footNote:'Preview — minting has not started yet.',
+    footX:'Share on X', footFollow:'Follow @Seraphinft on X', footToken:'Token: BNTB', footNote:'Mint opens at 23:00 WIB (16:00 UTC).',
     faqTitle:'FAQ<span class="en-sub">よくある質問</span>',
     faqDesc:'Answers to the questions we hear most — about minting, the BNTB bonus, and the marketplace.',
     faqQ1:'Who can claim the free mint?',
@@ -1366,7 +1363,7 @@ document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeL
 function setLang(lang){
   LANG = lang;
   document.documentElement.lang = lang;
-  document.title = lang==='ja' ? 'Bird and The Bees — プレビュー' : 'Bird and The Bees — Preview';
+  document.title = 'Bird and The Bees';
   var dict = I18N[lang];
   var els = document.querySelectorAll('[data-lkey]');
   for (var k = 0; k < els.length; k++){
@@ -1656,7 +1653,7 @@ setLang('ja'); /* apply the JA dictionary to every labelled element on load */
       mintBtn.classList.remove('live');
       mintBtn.textContent = (typeof LANG !== 'undefined' && LANG === 'en') ? 'Mint — Coming Soon' : 'ミント — 近日公開';
       if (floatBtn){ floatBtn.textContent = t.floatClosed; floatBtn.classList.remove('live'); }
-      if (mintNote && liveOpen === false) mintNote.textContent = (typeof LANG !== 'undefined' && LANG === 'en') ? 'Minting is currently paused.' : '現在ミントは停止中です。';
+      if (mintNote && liveOpen === false) mintNote.textContent = (typeof LANG !== 'undefined' && LANG === 'en') ? 'Mint opens at 23:00 WIB (16:00 UTC).' : 'ミントは23:00 WIB（16:00 UTC）に開始します。';
     }
     walletAddr.textContent = account ? account : t.notConnected;
     if (qty1Btn) qty1Btn.setAttribute('aria-pressed', qty === 1 ? 'true' : 'false');
